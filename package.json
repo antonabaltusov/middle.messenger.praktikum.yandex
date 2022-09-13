@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "parcel src/pages/index.hbs --no-cache",
+    "prod": "parcel build src/pages/index.hbs",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
