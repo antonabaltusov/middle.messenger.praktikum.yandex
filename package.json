@@ -23,13 +23,15 @@
   },
   "homepage": "https://github.com/antonabaltusov/middle.messenger.praktikum.yandex#readme",
   "devDependencies": {
-    "@anikin/parcel-transformer-handlebars": "^1.0.9",
-    "@parcel/transformer-sass": "^2.7.0",
-    "autoprefixer": "^10.4.9",
-    "express": "^4.18.1",
-    "parcel": "^2.7.0",
-    "postcss": "^8.4.16",
-    "postcss-import": "^15.0.0",
-    "postcss-nested": "^5.0.6"
+    "@anikin/parcel-transformer-handlebars": "1.0.9",
+    "@parcel/transformer-sass": "2.7.0",
+    "autoprefixer": "10.4.9",
+    "parcel": "2.7.0",
+    "postcss": "8.4.16",
+    "postcss-import": "15.0.0",
+    "postcss-nested": "5.0.6"
+  },
+  "dependencies": {
+    "express": "4.18.1"
   }
 }

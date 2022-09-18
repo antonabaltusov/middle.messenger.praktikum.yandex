@@ -2,7 +2,6 @@
 @import './general.scss';
 @import '../layouts/profile/profile.scss';
 @import '../layouts/gradient-modal/gradient-modal.scss';
-@import '../partials/post-card/post-card.scss';
 @import '../partials/button-submit/button-submit.scss';
 @import '../partials/form-input/form-input.scss';
 @import '../partials/link/link.scss';
