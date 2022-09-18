@@ -1,0 +1,12 @@
+<div class="avatar">
+  {{#if img}}
+    <img src="{{img}}" alt="" />
+  {{else}}
+    <img class="default" src=" ../assets/avatar-default.png" alt="" />
+  {{/if}}
+  {{#if link}}
+    <a class="avatar__overflow df-center" href="./new-avatar.hbs">
+      <p>change<br />avatar</p>
+    </a>
+  {{/if}}
+</div>

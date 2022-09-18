@@ -1,0 +1,41 @@
+body {
+  font-family: "Montserrat", sans-serif;
+}
+.border-radius {
+  border-radius: 1.2em/50%;
+}
+.blue-border {
+  border: 2px solid blue;
+}
+.gradient {
+  background: linear-gradient(135deg, rgba(230, 61, 171, 0.7), white);
+}
+.modal {
+  row-gap: 1em;
+  padding: 1em 3em 2em 3em;
+  border: 2px solid white;
+  border-radius: 3em;
+  & h1 {
+    letter-spacing: 0.2em;
+    font-size: 1.5em;
+    color: white;
+    text-shadow: 0.5px 0px 0.5px black;
+  }
+}
+.df-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.df-column-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.full-screen {
+  width: 100vw;
+  height: 100vh;
+}
+.fd-column {
+  flex-direction: column;
+}

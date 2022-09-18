@@ -1,0 +1,10 @@
+@import './reset.css';
+@import './general.scss';
+@import '../layouts/profile/profile.scss';
+@import '../layouts/gradient-modal/gradient-modal.scss';
+@import '../partials/button-submit/button-submit.scss';
+@import '../partials/form-input/form-input.scss';
+@import '../partials/link/link.scss';
+@import '../partials/error/error.scss';
+@import '../partials/avatar/avatar.scss';
+@import '../partials/close-button/close-button.scss';
