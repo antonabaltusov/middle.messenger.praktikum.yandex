@@ -1,0 +1,16 @@
+---
+title: 'Profile'
+goback: './profile.hbs'
+---
+
+{{!< profile/profile }}
+<div class="df-column-center">
+{{> 'avatar/avatar' img=""}}
+{{> "form-input/form-input" placeholder='Email' name="email" value="sims0204@gmail.com"}}
+{{> "form-input/form-input" placeholder='Login' name="login" value="antoshka"}}
+{{> "form-input/form-input" placeholder='First name' name="first_name" value="Anton"}}
+{{> "form-input/form-input" placeholder='Second name' name="second_name" value="Abaltusov"}}
+{{> "form-input/form-input" placeholder='Nickname' name="display_name" value="antoshka"}}
+{{> "form-input/form-input" placeholder='Phone' name="phone" type="phone" value="89127551280"}}
+{{> "button-submit/button-submit" text='Save'}}
+</div>

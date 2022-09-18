@@ -1,0 +1,14 @@
+---
+title: 'Login'
+---
+
+{{!< gradient-modal/gradient-modal }}
+      <h1>Login</h1>
+      <form class="df-column-center">
+        {{> "form-input/form-input" placeholder='login' name="login"}}
+        {{> "form-input/form-input" placeholder='Password' name="password" type='password'}}
+        {{> "button-submit/button-submit" text='Sing in'}}
+      </form>
+      {{> "link/link" text='registration' link="./registration.hbs"}}
+  </div>
+</div>
