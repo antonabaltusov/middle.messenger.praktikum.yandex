@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,UAAU,CAAC;EACT,KAAK,EAAE,IAAI;CACZ",
+    "sources": [
+        "../chat-list/chat-list.scss"
+    ],
+    "names": [],
+    "file": "chat-list.css"
+}

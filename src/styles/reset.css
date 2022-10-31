@@ -84,6 +84,7 @@ video {
   border: 0;
   font-size: 100%;
   vertical-align: baseline;
+  box-sizing: border-box;
 }
 
 article,
@@ -124,12 +125,5 @@ table {
 }
 
 input[type="text"] {
-  font-family: inherit;
-  /* 1 */
-  font-size: inherit;
-  /* 1 */
-  line-height: inherit;
-  /* 1 */
   margin: 0;
-  /* 2 */
 }

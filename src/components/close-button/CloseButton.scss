@@ -1,0 +1,15 @@
+.close-button {
+  font-size: 1.5em;
+  width: 1.5em;
+  height: 1.5em;
+  color: black;
+  background-color: transparent;
+  border: none;
+  text-decoration: none;
+
+  &:hover {
+    cursor: pointer;
+    transform: scale(1.5);
+    transition: 0.3s;
+  }
+}

@@ -1,0 +1,12 @@
+.massenger-main__item {
+  border-radius: 10px;
+  border: 3px solid rgb(1, 99, 1);
+  background-color: rgba(85, 197, 85, 0.5);
+  width: 70%;
+  padding: 1.5em;
+  &.right {
+    align-self: flex-end;
+    border-color: blue;
+    background-color: rgba(68, 68, 218, 0.5);
+  }
+}

@@ -1,0 +1,24 @@
+.massenger-main__list {
+  &-wrapper {
+    overflow-x: hidden;
+    overflow-y: auto;
+    height: 100%;
+    position: relative;
+  }
+  padding: 20px;
+  vertical-align: bottom;
+  min-height: 100%;
+  row-gap: 30px;
+  & .day {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    &:not(:first-child) {
+      margin-top: 15px;
+    }
+    &__date {
+      align-self: center;
+      color: gray;
+    }
+  }
+}

@@ -1,0 +1,28 @@
+.form-input__wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 1.2em;
+    width: 100%;
+  & .input {
+    & + label {
+      opacity: 0;
+      transition: 0.2s;
+      padding-left: 1em;
+      color: white;
+      font-size: 0.8em;
+      text-shadow: 0.5px 0px 0.5px black;
+    }
+    &:not(:placeholder-shown) {
+      & + label {
+        opacity: 1;
+      }
+    }
+    &:focus {
+      & + label {
+        opacity: 1;
+      }
+    }
+  }
+}

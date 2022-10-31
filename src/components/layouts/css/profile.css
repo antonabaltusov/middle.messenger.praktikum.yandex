@@ -1,0 +1,10 @@
+.profile-wrapper {
+  position: relative;
+}
+
+.profile-wrapper .close-button {
+  position: absolute;
+  top: 1.5em;
+  right: 1.5em;
+}
+/*# sourceMappingURL=profile.css.map */
