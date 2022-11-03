@@ -1,5 +1,5 @@
-import { Block } from "../../utils/Block";
-import "./Link.scss";
+import Block from 'utils/Block';
+import './style.scss';
 
 interface LinkProps {
   link: string;
@@ -11,6 +11,6 @@ export class Link extends Block {
     super(props);
   }
   render() {
-    return `<a href="{{link}}" class="link">{{text}}</a>`;
+    return '<a href="{{link}}" class="link">{{text}}</a>';
   }
 }

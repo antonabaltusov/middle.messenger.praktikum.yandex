@@ -1,11 +1,11 @@
-import { Block } from "utils/Block";
-import "./style.scss";
+import Block from 'utils/Block';
+import './style.scss';
 
-interface InputErrorProps {
+type InputErrorProps = {
   text?: string;
-}
+};
 
-export class InputError extends Block {
+export class InputError extends Block<InputErrorProps> {
   constructor(props: InputErrorProps) {
     super(props);
   }

@@ -1,14 +1,14 @@
-import { Block } from "../../utils/Block";
-import imgDefault from "../../assets/avatar-default.png";
-import "./style.scss";
+import Block from 'utils/Block';
+import imgDefault from 'assets/avatar-default.png';
+import './style.scss';
 
-interface AvatarProps {
+type AvatarProps = {
   img: string;
   link: string;
   default: string;
-}
+};
 
-export class Avatar extends Block {
+export class Avatar extends Block<AvatarProps> {
   constructor({ img, link }: AvatarProps) {
     super({
       default: imgDefault,

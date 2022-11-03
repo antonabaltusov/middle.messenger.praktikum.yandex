@@ -1,7 +1,7 @@
-import { Block } from "utils/Block";
-import "./style.scss";
+import Block from 'utils/Block';
+import './style.scss';
 
-interface InputProps {
+type IncomingProps = {
   onFocus?: () => void;
   onBlur?: () => void;
   disabled?: boolean;
@@ -9,11 +9,22 @@ interface InputProps {
   type?: string;
   name: string;
   placeholder?: string;
-}
+};
+type Props = {
+  disabled?: boolean;
+  value?: string;
+  type?: string;
+  name: string;
+  placeholder?: string;
+  events: {
+    focus?: () => void;
+    blur?: () => void;
+  };
+};
 
-export class Input extends Block {
-  constructor({onFocus,onBlur, ...props }: InputProps) {
-    super({...props, events: {focus: onFocus, blur: onBlur}});
+export class Input extends Block<Props> {
+  constructor({ onFocus, onBlur, ...props }: IncomingProps) {
+    super({ ...props, events: { focus: onFocus, blur: onBlur } });
   }
 
   render() {

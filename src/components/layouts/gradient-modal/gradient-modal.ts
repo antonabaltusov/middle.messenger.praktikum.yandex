@@ -1,7 +1,7 @@
-import { Block } from "../../../utils/Block";
+import Block from 'utils/Block';
 
-import "./gradient-modal.scss";
-import "../../../styles/style.css";
+import './style.scss';
+import 'styles/style.css';
 export class GradientModal extends Block {
   constructor() {
     super();

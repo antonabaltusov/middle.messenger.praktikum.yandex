@@ -1,15 +1,16 @@
-import { Block } from "../../utils/Block";
-import "./style.scss";
+import Block from 'utils/Block';
+import './style.scss';
+
 export type Chat = {
   chatname: string;
   newMessageCount: number;
   img: string;
 };
-interface ChatProps {
+type ChatProps = {
   chat: Chat;
-}
+};
 
-export class ChatItem extends Block {
+export class ChatItem extends Block<ChatProps> {
   constructor(props: ChatProps) {
     super(props);
   }

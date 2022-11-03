@@ -1,1 +1,1 @@
-export { MassegeList as default } from "./MassegeList";
+export { MassegeList as default } from './MassegeList';

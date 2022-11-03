@@ -1,18 +1,18 @@
-import { Block } from "../../utils/Block";
-import "./style.scss";
+import Block from 'utils/Block';
+import './style.scss';
 
 export type Massege = {
   text: string;
   time: string;
   isMy?: boolean;
 };
-type MassegeProps = {
+type Prop = {
   massege: Massege;
 };
 
-export class MassegeItem extends Block {
-  constructor({ massege }: MassegeProps) {
-    super({ massege });
+export class MassegeItem extends Block<Prop> {
+  constructor(prop: Prop) {
+    super(prop);
   }
   render() {
     return `

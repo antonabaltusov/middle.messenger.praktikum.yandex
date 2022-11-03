@@ -1,15 +1,30 @@
-import { Block } from "../../utils/Block";
-import "./button-submit.scss";
+import Block from 'utils/Block';
+import './style.scss';
 
-interface ButtonProps {
+export type IncomingProps = {
   label: string;
   type?: string;
   onClick?: () => void;
   link?: string;
-}
+};
+export type Props = {
+  label: string;
+  type?: string;
+  link?: string;
+  events: {
+    click?: () => void;
+  };
+};
 
-export class Button extends Block {
-  constructor({ label, link, onClick, type = "button" }: ButtonProps) {
+export class Button extends Block<Props> {
+  constructor(
+    {
+      label,
+      link,
+      onClick,
+      type = 'button',
+    }: IncomingProps = {} as IncomingProps
+  ) {
     super({
       label,
       link,

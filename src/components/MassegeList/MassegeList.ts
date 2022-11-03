@@ -1,15 +1,18 @@
-import { Block } from "../../utils/Block";
-import { Massege } from "../MassegeItem/MassegeItem";
-import "./style.scss";
+import { Massege } from 'components/MassegeItem/MassegeItem';
+import Block from 'utils/Block';
+import './style.scss';
 
 export type Masseges = {
   date: string;
   masseges: Massege[];
 };
+type Prop = {
+  massegess: Masseges[];
+};
 
-export class MassegeList extends Block {
-  constructor(massegess: Masseges[]) {
-    super(massegess);
+export class MassegeList extends Block<Prop> {
+  constructor(prop: Prop) {
+    super(prop);
   }
   componentDidMount() {
     this.element!.scrollTop = this.element!.scrollHeight;

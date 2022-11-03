@@ -1,7 +1,7 @@
-import { Block } from "../../../utils/Block";
+import Block from 'utils/Block';
 
-import "./profile.scss";
-import "../../../styles/style.css";
+import './style.scss';
+import 'styles/style.css';
 export class ProfileLayout extends Block {
   constructor() {
     super();

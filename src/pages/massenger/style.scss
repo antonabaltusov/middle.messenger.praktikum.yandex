@@ -50,13 +50,6 @@
     &__input-block {
       padding: 10px 20px;
       background-color: rgba(214, 214, 214, 0.1);
-      & form {
-        display: flex;
-        column-gap: 15px;
-        & .form-input__wrapper {
-          flex: 1;
-        }
-      }
     }
   }
 }

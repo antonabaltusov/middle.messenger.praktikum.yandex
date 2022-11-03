@@ -1,1 +1,1 @@
-export { ProfileLayout as default } from "./ProfileLayout";
+export { ProfileLayout as default } from './ProfileLayout';

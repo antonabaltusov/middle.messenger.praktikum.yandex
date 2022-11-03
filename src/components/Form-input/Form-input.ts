@@ -1,31 +1,40 @@
-import { Block } from "utils/Block";
-import { validateInput, ValidateType } from "helpers/validateForm";
-import "./style.scss";
+import Block from 'utils/Block';
+import { validateInput, ValidateType } from 'helpers/validateForm';
+import './style.scss';
+import { Input } from 'components/input/input';
+import { InputError } from 'components/inputError/inputError';
 
-interface FormInputProps {
+type IncomingProps = {
   disabled?: boolean;
   value?: string;
   type?: string;
   name: string;
   placeholder?: string;
   label?: string;
-}
+};
 
-export class FormInput extends Block {
+type Props = IncomingProps & {
+  onFocus: () => void;
+  onBlur: () => void;
+};
+type Refs = {
+  Input: Input;
+  Error: InputError;
+};
+export class FormInput extends Block<Props, Refs> {
   touched: boolean;
-  constructor(props: FormInputProps) {
-    
+  constructor(props: IncomingProps) {
     super({
-      ...props, 
-      onFocus : () => {
+      ...props,
+      onFocus: () => {
         if (this.touched) {
-          this.validInput()
+          this.validInput();
         }
         this.touched = true;
       },
-      onBlur : () => {
-        this.validInput()
-      }
+      onBlur: () => {
+        this.validInput();
+      },
     });
     if (!props.value) {
       this.touched = false;
@@ -33,21 +42,20 @@ export class FormInput extends Block {
       this.touched = true;
     }
   }
-  validInput(): {name: string, value: string, valid: boolean } {
-    
-    const inputEl =  this.refs.Input.getContent() as HTMLInputElement;
-    const value = inputEl.value.trim()
+  validInput(): { name: string; value: string; valid: boolean } {
+    const inputEl = this.refs.Input.getContent() as HTMLInputElement;
+    const value = inputEl.value.trim();
     inputEl.value = value;
-    const errors = validateInput(
-      { type: inputEl.name as ValidateType, value },
-    );
-    
-    
-    this.refs.Error.setProps({ text: errors})
-    return {name: inputEl.name, value, valid: !errors.length};
-  };
+    const errors = validateInput({ type: inputEl.name as ValidateType, value });
+    this.refs.Error?.setProps({ text: errors });
+    if (errors.length) {
+      this.element?.classList.add('error');
+    } else {
+      this.element?.classList.remove('error');
+    }
+    return { name: inputEl.name, value, valid: !errors.length };
+  }
   render() {
-    
     return `
     <div class="form-input__wrapper">
     {{{Input 

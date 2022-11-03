@@ -1,1 +1,1 @@
-export { MassegeItem as default } from "./MassegeItem";
+export { MassegeItem as default } from './MassegeItem';

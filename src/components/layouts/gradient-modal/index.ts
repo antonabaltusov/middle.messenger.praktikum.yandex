@@ -1,1 +1,1 @@
-export { GradientModal as default } from "./gradient-modal";
+export { GradientModal as default } from './gradient-modal';

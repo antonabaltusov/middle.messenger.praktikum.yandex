@@ -1,0 +1,15 @@
+.form-massenger {
+  display: flex;
+  align-items: center;
+  column-gap: 15px;
+  & .form-input__wrapper {
+    height: fit-content;
+    flex: 1;
+    & label {
+      display: none;
+    }
+    & input {
+      text-align: left;
+    }
+  }
+}

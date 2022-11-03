@@ -1,28 +1,32 @@
-import { Block } from "../../utils/Block";
-import "./CloseButton.scss";
-import img from "../../assets/close.svg";
+import Block from 'utils/Block';
+import './style.scss';
+import img from 'assets/close.svg';
 
-interface CloseButtonProps {
+type IncomingProps = {
   onClick?: () => void;
-}
+};
+type Props = {
+  img: string;
+  events: {
+    click: () => void;
+  };
+};
 
-export class CloseButton extends Block {
-  constructor(props: CloseButtonProps) {
-    const onClick = () => {
-      history.back();
-    };
+export class CloseButton extends Block<Props> {
+  constructor({ onClick }: IncomingProps) {
+    if (!onClick) {
+      onClick = () => (window.location.href = '/massenger');
+    }
     super({
       img,
       events: {
         click: onClick,
       },
-      ...props,
     });
   }
   render() {
     return `
     <button onclick="{{click}}" class="close-button"><img src="{{img}}" alt="x"></button>
-  
     `;
   }
 }

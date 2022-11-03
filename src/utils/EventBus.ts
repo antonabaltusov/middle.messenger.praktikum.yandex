@@ -1,35 +1,37 @@
-type Handler = (...arts: unknown[]) => void;
-
-export default class EventBus {
-  private listeners: Record<string, Handler[]> = {};
+export type Listener<T extends unknown[] = any[]> = (...args: T) => void;
+export default class EventBus<
+  E extends string = string,
+  M extends { [K in E]: unknown[] } = Record<E, any[]>
+> {
+  private listeners: { [key in E]?: Listener<M[E]>[] } = {};
   constructor() {
     this.listeners = {};
   }
 
-  public on(event: string, callback: Handler) {
+  public on(event: E, callback: Listener<M[E]>) {
     if (!this.listeners[event]) {
       this.listeners[event] = [];
     }
 
-    this.listeners[event].push(callback);
+    this.listeners[event]!.push(callback);
   }
 
-  public off(event: string, callback: Handler) {
+  public off(event: E, callback: Listener<M[E]>) {
     if (!this.listeners[event]) {
       throw new Error(`Нет события: ${event}`);
     }
 
-    this.listeners[event] = this.listeners[event].filter(
+    this.listeners[event] = this.listeners[event]!.filter(
       (listener) => listener !== callback
     );
   }
 
-  public emit(event: string, ...args: unknown[]) {
+  public emit(event: E, ...args: M[E]) {
     if (!this.listeners[event]) {
       return;
     }
 
-    this.listeners[event].forEach(function (listener) {
+    this.listeners[event]!.forEach(function (listener) {
       listener(...args);
     });
   }

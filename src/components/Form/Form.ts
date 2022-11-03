@@ -1,12 +1,11 @@
-import FormInput from "components/Form-input";
-import { validateForm, ValidateType } from "../../helpers/validateForm";
-import { Block } from "../../utils/Block";
-import "./style.scss";
+import FormInput from 'components/Form-input';
+import Block from 'utils/Block';
+import './style.scss';
 
-// type FormProps = {
-//   inputsEl?: HTMLInputElement[];
-// }
-
+export type resultValidProps = {
+  inputs: { [name: string]: string };
+  valid: boolean;
+};
 export abstract class Form extends Block {
   constructor() {
     super();
@@ -17,31 +16,21 @@ export abstract class Form extends Block {
           this.validateForm();
         },
       },
-    })
-  }
-  getInputsValue(): { [name: string]: string } | void {
-    const result: { [name: string]: string } = {};
-    this.element?.querySelectorAll("input").forEach((input) => {
-      if (input.value) {
-        result[input.name] = input.value;
-      }
     });
-    if (Object.keys(result).length > 0) {
-      return result;
-    }
   }
   validateForm() {
     let validForm = true;
     const inputs: { [name: string]: string } = {};
-    Object.entries(this.refs).forEach(([key, input]) => {
+    Object.entries(this.refs).forEach(([, input]) => {
       if (input instanceof FormInput) {
-        const {value, valid, name} = input.validInput();
-        validForm = valid;
+        const { value, valid, name } = input.validInput();
+        if (!valid) {
+          validForm = valid;
+        }
         inputs[name] = value;
       }
-    })
-    console.log(validForm);
-    console.log(inputs);
-    
+    });
+    this.resultValid({ inputs, valid: validForm });
   }
+  abstract resultValid(param: resultValidProps): void;
 }

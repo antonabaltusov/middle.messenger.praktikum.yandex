@@ -1,1 +1,1 @@
-export { FormInput as default } from './Form-input'
+export { FormInput as default } from './Form-input';

@@ -1,15 +1,15 @@
-import { renderDOM } from "utils/renderDom";
+import { renderDOM } from 'utils/renderDom';
 
-import Button from "components/Button";
-import Link from "components/Link";
-import GradientModal from "components/layouts/gradient-modal";
-import { singIn } from "./sing-in";
+import Button from 'components/Button';
+import Link from 'components/Link';
+import GradientModal from 'components/layouts/gradient-modal';
+import { singIn } from './sing-in';
 
-import registerComponent from "utils/registerComponent";
-import FormInput from "components/Form-input";
-import Input from "components/input";
-import InputError from "components/inputError";
-import FormSingIn from "blocks/Form-sing-in";
+import registerComponent from 'utils/registerComponent';
+import Input from 'components/input';
+import InputError from 'components/inputError';
+import FormSingIn from 'blocks/FormSingIn';
+import FormInput from 'components/Form-input';
 
 registerComponent(Button);
 registerComponent(Link);
@@ -19,8 +19,8 @@ registerComponent(FormSingIn);
 registerComponent(Input);
 registerComponent(InputError);
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener('DOMContentLoaded', () => {
   const App = new singIn();
 
-  renderDOM("#app", App);
+  renderDOM('#app', App);
 });
