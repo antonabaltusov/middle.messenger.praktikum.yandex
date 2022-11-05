@@ -1,6 +1,6 @@
 import Block from 'utils/Block';
 
-export class singIn extends Block {
+export class singIn extends Block<{}> {
   constructor() {
     super();
   }

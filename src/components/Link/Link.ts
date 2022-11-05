@@ -1,16 +1,30 @@
 import Block from 'utils/Block';
 import './style.scss';
 
-interface LinkProps {
+type IncomingProps = {
   link: string;
   text: string;
-}
+  onClick?: () => void;
+};
+type Props = {
+  link: string;
+  text: string;
+  events: {
+    click?: () => void;
+  };
+};
 
-export class Link extends Block {
-  constructor(props: LinkProps) {
-    super(props);
+export class Link extends Block<Props> {
+  static componentName = 'Link';
+  constructor({ onClick, ...props }: IncomingProps) {
+    super({
+      ...props,
+      events: {
+        click: onClick,
+      },
+    });
   }
   render() {
-    return '<a href="{{link}}" class="link">{{text}}</a>';
+    return '<a {{#if link}}href="{{link}}"{{/if}} class="link">{{text}}</a>';
   }
 }

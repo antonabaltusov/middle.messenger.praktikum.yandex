@@ -5,11 +5,8 @@ import deepEqual from '../helpers/deepEqual';
 
 // eslint-disable-next-line no-use-before-define
 type Events = Values<typeof Block.EVENTS>;
-export default class Block<
-  P extends Record<string, any> = {},
-  // eslint-disable-next-line no-use-before-define
-  Refs extends Record<string, Block<any>> = {}
-> {
+
+export default class Block<P extends Record<string, any>> {
   static EVENTS = {
     INIT: 'init',
     FLOW_CDM: 'flow:component-did-mount',
@@ -17,14 +14,16 @@ export default class Block<
     FLOW_UPDATE: 'flow:component-did-update',
   } as const;
 
+  static componentName: string;
+
   private _element: Nullable<HTMLElement> = null;
   public id = 'id-' + nanoid(6);
 
   protected readonly props: P;
   // eslint-disable-next-line no-use-before-define
-  protected refs: Refs = {} as Refs;
+  protected refs = {} as Record<string, Block<Record<string, any>>>;
   // eslint-disable-next-line no-use-before-define
-  protected children: Record<string, Block<{}>>;
+  protected children: Record<string, Block<Record<string, any>>>;
 
   private eventBus: () => EventBus<Events>;
 
@@ -41,7 +40,6 @@ export default class Block<
 
     this._registerEvents(eventBus);
     eventBus.emit(Block.EVENTS.INIT);
-    console.log(this.children);
   }
 
   _registerEvents(eventBus: EventBus<Events>): void {
@@ -154,7 +152,6 @@ export default class Block<
     this._addEvents();
   }
 
-  // Может переопределять пользователь, необязательно трогать
   protected render(): string {
     return '';
   }
@@ -232,7 +229,7 @@ export default class Block<
       const layoutContent = content.querySelector('[data-layout="1"]');
 
       if (layoutContent && stubChilds.length) {
-        layoutContent.append(...stubChilds);
+        layoutContent.replaceWith(...stubChilds);
       }
     });
 

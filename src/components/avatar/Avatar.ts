@@ -9,6 +9,7 @@ type AvatarProps = {
 };
 
 export class Avatar extends Block<AvatarProps> {
+  static componentName = 'Avatar';
   constructor({ img, link }: AvatarProps) {
     super({
       default: imgDefault,

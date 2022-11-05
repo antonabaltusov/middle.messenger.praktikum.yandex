@@ -1,6 +1,6 @@
 import Block from 'utils/Block';
 
-export class ChangePassword extends Block {
+export class ChangePassword extends Block<{}> {
   constructor() {
     super();
   }

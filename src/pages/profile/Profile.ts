@@ -1,6 +1,6 @@
 import Block from 'utils/Block';
 
-export class Profile extends Block {
+export class Profile extends Block<{}> {
   constructor() {
     super();
   }

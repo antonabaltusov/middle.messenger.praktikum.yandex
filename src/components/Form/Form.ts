@@ -6,7 +6,13 @@ export type resultValidProps = {
   inputs: { [name: string]: string };
   valid: boolean;
 };
-export abstract class Form extends Block {
+type Props = {
+  events: {
+    submit: (e: Event) => void;
+  };
+};
+export abstract class Form extends Block<Props> {
+  static componentName = 'Form';
   constructor() {
     super();
     this.setProps({

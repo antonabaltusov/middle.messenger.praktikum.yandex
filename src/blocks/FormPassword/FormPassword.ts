@@ -5,6 +5,7 @@ import { ValidateType } from 'helpers/validateForm';
 import './style.scss';
 
 export class FormPassword extends Form {
+  static componentName = 'FormPassword';
   resultValid({
     valid,
     inputs: { password, password_again },

@@ -1,6 +1,6 @@
 import Block from 'utils/Block';
 
-export class NewAvatar extends Block {
+export class NewAvatar extends Block<{}> {
   constructor() {
     super();
   }

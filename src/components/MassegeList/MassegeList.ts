@@ -11,6 +11,7 @@ type Prop = {
 };
 
 export class MassegeList extends Block<Prop> {
+  static componentName = 'MassegeList';
   constructor(prop: Prop) {
     super(prop);
   }

@@ -1,15 +1,12 @@
 import Block from 'utils/Block';
-import { Chat, ChatItem } from '../chat/Chat';
+import { Chat } from '../chat/Chat';
 import './style.scss';
 
 export type ChatListProps = {
   chats: Chat[];
 };
-type Refs = {
-  ChatItem: ChatItem;
-};
-
-export class ChatList extends Block<ChatListProps, Refs> {
+export class ChatList extends Block<ChatListProps> {
+  static componentName = 'ChatList';
   constructor(props: ChatListProps) {
     super(props);
   }

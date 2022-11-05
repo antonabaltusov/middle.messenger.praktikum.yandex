@@ -1,14 +1,21 @@
 import Block from 'utils/Block';
 import './style.scss';
 
-type ErrorProps = {
+type IncomingProps = {
   codeError: string;
   message: string;
+  onClick?: () => void;
 };
 
-export class ErrorComponent extends Block<ErrorProps> {
-  constructor(props: ErrorProps) {
-    super(props);
+export class ErrorComponent extends Block<IncomingProps> {
+  static componentName = 'ErrorComponent';
+  constructor(props: IncomingProps) {
+    super({
+      ...props,
+      onClick: () => {
+        history.back();
+      },
+    });
   }
 
   render() {
@@ -16,7 +23,7 @@ export class ErrorComponent extends Block<ErrorProps> {
     <div class="error df-column-center full-screen">
         <h1>{{codeError}}</h1>
         <p>{{message}}</p>
-        {{{ Link text='Go Back' link="${window.history.state.prevUrl}"}}}
+        {{{ Link text='Go Back' onClick=onClick }}}
     </div>
     `;
   }

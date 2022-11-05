@@ -6,6 +6,7 @@ type InputErrorProps = {
 };
 
 export class InputError extends Block<InputErrorProps> {
+  static componentName = 'InputError';
   constructor(props: InputErrorProps) {
     super(props);
   }

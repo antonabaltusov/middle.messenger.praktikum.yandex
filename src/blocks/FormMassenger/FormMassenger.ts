@@ -1,13 +1,11 @@
 import Form from 'components/Form';
-import { resultValidProps } from 'components/Form/Form';
 import { ValidateType } from 'helpers/validateForm';
 
 import './style.scss';
 
 export class FormMassenger extends Form {
-  resultValid({ inputs: { message } }: resultValidProps) {
-    console.log(message);
-  }
+  static componentName = 'FormMassenger';
+  resultValid() {}
   render() {
     return `
     <form class="form-massenger">

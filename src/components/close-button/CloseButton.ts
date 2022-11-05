@@ -13,6 +13,7 @@ type Props = {
 };
 
 export class CloseButton extends Block<Props> {
+  static componentName = 'CloseButton';
   constructor({ onClick }: IncomingProps) {
     if (!onClick) {
       onClick = () => (window.location.href = '/massenger');

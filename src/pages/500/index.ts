@@ -4,10 +4,10 @@ import Link from 'components/Link';
 import registerComponent from 'utils/registerComponent';
 import { Page500 } from './Page500';
 import Body from 'components/layouts/body';
-import Error from 'components/ErrorComponent';
+import ErrorComponent from 'components/ErrorComponent';
 
 registerComponent(Link);
-registerComponent(Error);
+registerComponent(ErrorComponent);
 registerComponent(Body);
 document.addEventListener('DOMContentLoaded', () => {
   const App = new Page500();

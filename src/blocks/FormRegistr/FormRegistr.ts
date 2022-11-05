@@ -5,6 +5,7 @@ import { ValidateType } from 'helpers/validateForm';
 import './style.scss';
 
 export class FormRegistr extends Form {
+  static componentName = 'FormRegistr';
   resultValid({ valid }: resultValidProps) {
     if (valid) {
       window.location.href = '/sing-in';

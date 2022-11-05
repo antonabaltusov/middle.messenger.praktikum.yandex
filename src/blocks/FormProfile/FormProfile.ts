@@ -5,6 +5,7 @@ import { ValidateType } from 'helpers/validateForm';
 import './style.scss';
 
 export class FormProfile extends Form {
+  static componentName = 'FormProfile';
   resultValid({ valid }: resultValidProps) {
     if (valid) {
       window.location.href = '/profile';

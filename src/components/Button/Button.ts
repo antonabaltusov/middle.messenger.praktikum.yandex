@@ -17,14 +17,8 @@ export type Props = {
 };
 
 export class Button extends Block<Props> {
-  constructor(
-    {
-      label,
-      link,
-      onClick,
-      type = 'button',
-    }: IncomingProps = {} as IncomingProps
-  ) {
+  static componentName = 'Button';
+  constructor({ label, link, onClick, type = 'button' }: IncomingProps) {
     super({
       label,
       link,

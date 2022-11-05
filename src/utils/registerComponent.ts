@@ -1,13 +1,17 @@
 import Block from './Block';
 import Handlebars, { HelperOptions } from 'handlebars';
 
-// type BlockConstructable<Props = any> = {
-//   new (props: Props): Block;
-// };
+type BlockConstructable<block extends Block<any>, Props = any> = {
+  new (props: Props): block;
+  componentName: string;
+};
 
-export default function registerComponent<Props extends any>(Component: any) {
+export default function registerComponent<
+  block extends Block<any>,
+  Props = any
+>(Component: BlockConstructable<block, Props>) {
   Handlebars.registerHelper(
-    Component.name,
+    Component.componentName || Component.name,
     function (
       this: Props,
       { hash: { ref, ...hash }, data, fn }: HelperOptions

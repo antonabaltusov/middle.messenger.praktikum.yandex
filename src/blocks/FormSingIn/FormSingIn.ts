@@ -5,6 +5,7 @@ import { ValidateType } from 'helpers/validateForm';
 import './style.scss';
 
 export class FormSingIn extends Form {
+  static componentName = 'FormSingIn';
   resultValid({ valid }: resultValidProps) {
     if (valid) {
       window.location.href = '/massenger';

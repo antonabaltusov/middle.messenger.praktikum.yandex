@@ -1,8 +1,6 @@
 import Block from 'utils/Block';
 import { validateInput, ValidateType } from 'helpers/validateForm';
 import './style.scss';
-import { Input } from 'components/input/input';
-import { InputError } from 'components/inputError/inputError';
 
 type IncomingProps = {
   disabled?: boolean;
@@ -17,11 +15,8 @@ type Props = IncomingProps & {
   onFocus: () => void;
   onBlur: () => void;
 };
-type Refs = {
-  Input: Input;
-  Error: InputError;
-};
-export class FormInput extends Block<Props, Refs> {
+export class FormInput extends Block<Props> {
+  static componentName = 'FormInput';
   touched: boolean;
   constructor(props: IncomingProps) {
     super({

@@ -3,7 +3,7 @@ import { Masseges } from 'components/MassegeList/MassegeList';
 import Block from 'utils/Block';
 import './style.scss';
 
-export class Massenger extends Block {
+export class Massenger extends Block<{}> {
   constructor() {
     const chats: Chat[] = [
       {

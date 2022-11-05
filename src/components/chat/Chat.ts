@@ -11,6 +11,7 @@ type ChatProps = {
 };
 
 export class ChatItem extends Block<ChatProps> {
+  static componentName = 'ChatItem';
   constructor(props: ChatProps) {
     super(props);
   }
