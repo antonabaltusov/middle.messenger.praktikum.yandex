@@ -3,7 +3,7 @@ import { renderDOM } from 'utils/renderDom';
 import Button from 'components/Button';
 import Link from 'components/Link';
 import GradientModal from 'components/layouts/gradient-modal';
-import { singIn } from './sing-in';
+import { SingIn } from './sing-in';
 
 import registerComponent from 'utils/registerComponent';
 import Input from 'components/input';
@@ -20,7 +20,7 @@ registerComponent(Input);
 registerComponent(InputError);
 
 document.addEventListener('DOMContentLoaded', () => {
-  const App = new singIn();
+  const App = new SingIn();
 
   renderDOM('#app', App);
 });
