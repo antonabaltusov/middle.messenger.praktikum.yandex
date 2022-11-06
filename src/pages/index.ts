@@ -9,7 +9,7 @@ import registerComponent from 'utils/registerComponent';
 registerComponent(Link);
 registerComponent(GradientModal);
 
-export class main extends Block<{}> {
+export class Main extends Block<{}> {
   constructor() {
     super();
   }
@@ -17,22 +17,44 @@ export class main extends Block<{}> {
   render() {
     return `
     {{#GradientModal}}
-        {{{Link link="./registration" text="registration"}}}
-        {{{Link link="./sing-in" text="sing-in"}}}
-        {{{Link link="./profile" text="profile"}}}
-        {{{Link link="./new-avatar" text="new-avatar"}}}
-        {{{Link link="./massenger" text="massenger"}}}
-        {{{Link link="./edit-profile" text="edit-profile"}}}
-        {{{Link link="./change-password" text="change-password"}}}
-        {{{Link link="./500" text="500"}}}
-        {{{Link link="./404" text="404"}}}
+      <nav>
+        <ul>
+          <li>
+            {{{Link link="./registration" text="registration"}}}
+          </li>
+          <li>
+            {{{Link link="./sing-in" text="sing-in"}}}
+          </li>
+          <li>
+            {{{Link link="./profile" text="profile"}}}
+          </li>
+          <li>
+            {{{Link link="./new-avatar" text="new-avatar"}}}
+          </li>
+          <li>
+            {{{Link link="./massenger" text="massenger"}}}
+          </li>
+          <li>
+            {{{Link link="./edit-profile" text="edit-profile"}}}
+          </li>
+          <li>
+            {{{Link link="./change-password" text="change-password"}}}
+          </li>
+          <li>
+            {{{Link link="./500" text="500"}}}
+          </li>
+          <li>
+            {{{Link link="./404" text="404"}}}
+          </li>
+        </ul>
+      </nav>
     {{/GradientModal}}
   `;
   }
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  const App = new main();
+  const App = new Main();
 
   renderDOM('#app', App);
 });
