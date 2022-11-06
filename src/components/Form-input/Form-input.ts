@@ -63,7 +63,7 @@ export class FormInput extends Block<Props> {
       name=name
       ref="Input"
       }}}
-      <label>{{label}}</label>
+      <label class="label">{{label}}</label>
       {{{InputError ref="Error"}}}
     </div>
     `;

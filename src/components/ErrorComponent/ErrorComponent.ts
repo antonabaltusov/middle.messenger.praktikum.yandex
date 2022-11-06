@@ -21,8 +21,8 @@ export class ErrorComponent extends Block<IncomingProps> {
   render() {
     return `
     <div class="error df-column-center full-screen">
-        <h1>{{codeError}}</h1>
-        <p>{{message}}</p>
+        <h1 class="error-code">{{codeError}}</h1>
+        <p class="error-message">{{message}}</p>
         {{{ Link text='Go Back' onClick=onClick }}}
     </div>
     `;
