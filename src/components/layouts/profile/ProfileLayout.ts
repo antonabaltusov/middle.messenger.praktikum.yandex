@@ -9,10 +9,10 @@ export class ProfileLayout extends Block<{}> {
   }
   render() {
     return `
-    <div class="gradient df-center full-screen profile-wrapper">
+    <main class="gradient df-center full-screen profile-wrapper">
         {{{ CloseButton }}}
         <div data-layout=1></div>
-    </div>
+    </main>
     `;
   }
 }

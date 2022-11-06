@@ -9,9 +9,9 @@ export class Body extends Block<{}> {
   }
   render() {
     return `
-    <div>
+    <main>
         <div data-layout=1></div>
-    </div>
+    </main>
     `;
   }
 }
