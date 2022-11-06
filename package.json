@@ -29,17 +29,12 @@
   },
   "homepage": "https://github.com/antonabaltusov/middle.messenger.praktikum.yandex#readme",
   "devDependencies": {
-    "@anikin/parcel-transformer-handlebars": "1.0.9",
-    "@parcel/transformer-inline-string": "^2.7.0",
+    "@parcel/transformer-inline-string": "2.7.0",
     "@parcel/transformer-sass": "2.7.0",
     "@typescript-eslint/eslint-plugin": "5.38.0",
     "@typescript-eslint/parser": "5.38.0",
     "autoprefixer": "10.4.9",
     "eslint": "8.26.0",
-    "eslint-config-airbnb": "^19.0.4",
-    "eslint-plugin-import": "2.26.0",
-    "eslint-plugin-jsx-a11y": "6.6.1",
-    "eslint-plugin-react": "7.31.8",
     "parcel": "2.7.0",
     "postcss": "8.4.16",
     "postcss-import": "15.0.0",
@@ -49,9 +44,8 @@
     "typescript": "4.8.3"
   },
   "dependencies": {
-    "@anikin/parcel-transformer-handlebars-precompile": "^1.0.1",
     "express": "4.18.1",
     "handlebars": "4.7.7",
-    "nanoid": "^4.0.0"
+    "nanoid": "4.0.0"
   }
 }
