@@ -22,9 +22,9 @@ export class Avatar extends Block<AvatarProps> {
     <div class="avatar-wrapper">
       <div class="avatar">
         {{#if img}}
-          <img src="{{img}}" alt="" />
+          <img src="{{img}}" alt="Avatar" />
         {{else}}
-          <img class="default" src="{{default}}" alt="" />
+          <img class="default" src="{{default}}" alt="Avatar" />
         {{/if}}
         {{#if link}}
           <a class="avatar__overflow df-center" href="{{link}}">
