@@ -15,4 +15,3 @@ export class ChangePassword extends Block<{}> {
         `;
   }
 }
-//

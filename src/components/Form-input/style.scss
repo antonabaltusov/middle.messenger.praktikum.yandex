@@ -6,12 +6,12 @@
   width: 100%;
   &.error {
     gap: 0;
-    & label {
+    & .label {
       display: none;
     }
   }
   & .input {
-    & + label {
+    & + .label {
       opacity: 0;
       transition: 0.2s;
       padding-left: 1em;
@@ -20,12 +20,12 @@
       text-shadow: 0.5px 0px 0.5px black;
     }
     &:not(:placeholder-shown) {
-      & + label {
+      & + .label {
         opacity: 1;
       }
     }
     &:focus {
-      & + label {
+      & + .label {
         opacity: 1;
       }
     }

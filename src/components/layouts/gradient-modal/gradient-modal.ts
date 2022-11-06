@@ -9,11 +9,11 @@ export class GradientModal extends Block<{}> {
   }
   render() {
     return `
-    <div class="gradient df-center full-screen">
+    <main class="gradient df-center full-screen">
       <div class="modal df-column-center">
         <div data-layout=1></div>
       </div>
-    </div>
+    </main>
     `;
   }
 }

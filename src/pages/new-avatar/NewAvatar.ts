@@ -15,4 +15,3 @@ export class NewAvatar extends Block<{}> {
         `;
   }
 }
-//

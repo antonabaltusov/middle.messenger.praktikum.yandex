@@ -1,6 +1,6 @@
 import Block from 'utils/Block';
 
-export class registration extends Block<{}> {
+export class Registration extends Block<{}> {
   constructor() {
     super();
   }
