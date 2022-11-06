@@ -15,4 +15,3 @@ export class EditProfile extends Block<{}> {
         `;
   }
 }
-//
