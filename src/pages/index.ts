@@ -1,6 +1,6 @@
 import { renderDOM } from 'utils/renderDom';
 
-import Block from 'utils/Block';
+import { Block } from 'utils/Block';
 import Link from 'components/Link';
 import GradientModal from 'components/layouts/gradient-modal';
 

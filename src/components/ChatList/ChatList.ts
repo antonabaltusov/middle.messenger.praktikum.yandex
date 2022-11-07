@@ -1,4 +1,4 @@
-import Block from 'utils/Block';
+import { Block } from 'utils/Block';
 import { Chat } from '../chat/Chat';
 import './style.scss';
 

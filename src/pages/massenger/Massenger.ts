@@ -1,6 +1,6 @@
 import { Chat } from 'components/chat/Chat';
 import { Masseges } from 'components/MassegeList/MassegeList';
-import Block from 'utils/Block';
+import { Block } from 'utils/Block';
 import './style.scss';
 
 export class Massenger extends Block<{}> {

@@ -1,4 +1,4 @@
-import Block from 'utils/Block';
+import { Block } from 'utils/Block';
 import imgDefault from 'assets/avatar-default.png';
 import './style.scss';
 

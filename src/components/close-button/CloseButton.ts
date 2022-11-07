@@ -1,4 +1,4 @@
-import Block from 'utils/Block';
+import { Block } from 'utils/Block';
 import './style.scss';
 import img from 'assets/close.svg';
 

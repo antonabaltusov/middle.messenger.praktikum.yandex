@@ -1,5 +1,5 @@
 import { Massege } from 'components/MassegeItem/MassegeItem';
-import Block from 'utils/Block';
+import { Block } from 'utils/Block';
 import './style.scss';
 
 export type Masseges = {
