@@ -1,0 +1,27 @@
+.chat {
+  border-top: 1px solid black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px;
+  width: 100%;
+  &:hover {
+    cursor: pointer;
+    background-color: rgba($color: black, $alpha: 0.1);
+  }
+  & .avatar-wrapper {
+    width: 2.5em;
+    margin-bottom: 0;
+  }
+  & .new-message-count {
+    width: 2em;
+    height: 2em;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: blue;
+    color: white;
+    font-weight: 600;
+  }
+}
