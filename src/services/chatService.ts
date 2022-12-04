@@ -136,6 +136,7 @@ export const ChatService = {
         console.log('Соединение закрыто чисто');
       } else {
         console.log('Обрыв соединения');
+        ChatService.createSocket(chatId, token);
       }
 
       console.log(`Код: ${event.code} | Причина: ${event.reason}`);

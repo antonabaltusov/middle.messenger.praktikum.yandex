@@ -7,7 +7,6 @@ export class ChatList extends Block<AppState> {
   constructor(props: AppState) {
     ChatService.getChats();
     super(props);
-    console.log(props);
   }
   render() {
     return `

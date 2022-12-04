@@ -54,7 +54,6 @@ const addMasseges = (chatId: number, massseges: MessageDTO[]) => {
         isMy: state.user?.id === item.user_id,
       };
     });
-  console.log(chatId, activeChat.id);
 
   if (chatId == activeChat.id) {
     const newMassseges = [...filterMassseges, ...currentMes];
