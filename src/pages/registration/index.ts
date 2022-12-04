@@ -1,26 +1,5 @@
-import { renderDOM } from 'utils/renderDom';
-
-import Button from 'components/Button';
-import Link from 'components/Link';
-import GradientModal from 'components/layouts/gradient-modal';
-
-import registerComponent from 'utils/registerComponent';
-import FormInput from 'components/Form-input';
+import { Block } from 'utils/Block';
+import Connect from 'utils/Store/Connect';
 import { Registration } from './registration';
-import Input from 'components/input';
-import InputError from 'components/inputError';
-import FormRegistr from 'blocks/FormRegistr';
 
-registerComponent(Button);
-registerComponent(Link);
-registerComponent(GradientModal);
-registerComponent(FormInput);
-registerComponent(FormRegistr);
-registerComponent(Input);
-registerComponent(InputError);
-
-document.addEventListener('DOMContentLoaded', () => {
-  const App = new Registration();
-
-  renderDOM('#app', App);
-});
+export default Connect(Registration as typeof Block, (state) => state ?? {});

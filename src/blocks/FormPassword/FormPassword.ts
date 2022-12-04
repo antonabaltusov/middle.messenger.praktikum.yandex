@@ -1,18 +1,47 @@
+import { userAPI } from 'api/user-api';
+import './style.scss';
 import Form from 'components/Form';
 import { resultValidProps } from 'components/Form/Form';
 import { ValidateType } from 'helpers/validateForm';
-
-import './style.scss';
+import { apiHasError } from 'utils/apiHasError';
+import { Screens } from 'utils/screenList';
+import { Router } from 'utils/Router';
+const router = new Router('#app');
 
 export class FormPassword extends Form {
   static componentName = 'FormPassword';
-  resultValid({
+  async resultValid({
     valid,
-    inputs: { password, password_again },
+    inputs: { password_old, password, password_again },
   }: resultValidProps) {
     if (valid) {
-      if (password === password_again) {
-        window.location.href = '/profile';
+      if (password_old === password) {
+        this.refs.ErrorForm?.setProps({
+          text: 'совпадают старый и новый пароль',
+        });
+        return;
+      }
+      if (password !== password_again) {
+        this.refs.ErrorForm?.setProps({ text: 'не совпадают новые пароли' });
+        return;
+      }
+      try {
+        const data = {
+          oldPassword: password_old,
+          newPassword: password,
+        };
+        const response = await userAPI.newPassword(data);
+
+        if (apiHasError(response)) {
+          this.refs.ErrorForm?.setProps({ text: response.reason });
+          return;
+        }
+        this.refs.ErrorForm?.setProps({ text: '' });
+
+        router.go(Screens.Profile);
+      } catch (err) {
+        console.error(err);
+      } finally {
       }
     }
   }
@@ -40,6 +69,7 @@ export class FormPassword extends Form {
         label="Password again"
         ref="${ValidateType.PasswordAgain}"
       }}}
+      {{{InputError ref="ErrorForm"}}}
       {{{Button type="submit" label="Save"}}}
     </form>
     `;

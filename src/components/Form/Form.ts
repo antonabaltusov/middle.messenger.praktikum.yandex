@@ -13,9 +13,9 @@ type Props = {
 };
 export abstract class Form extends Block<Props> {
   static componentName = 'Form';
-  constructor() {
-    super();
-    this.setProps({
+  constructor(props: any) {
+    super({
+      ...props,
       events: {
         submit: (e: Event) => {
           e.preventDefault();

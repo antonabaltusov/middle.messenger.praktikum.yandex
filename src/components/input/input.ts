@@ -27,7 +27,12 @@ export class Input extends Block<Props> {
   constructor({ onFocus, onBlur, ...props }: IncomingProps) {
     super({ ...props, events: { focus: onFocus, blur: onBlur } });
   }
+  focus() {
+    const input = this.getContent();
+    console.log(input);
 
+    input.focus();
+  }
   render() {
     return `
       <input class="input border-radius blue-border" 

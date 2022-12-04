@@ -1,20 +1,19 @@
+import { ChatService } from 'services/chatService';
 import { Block } from 'utils/Block';
-import { Chat } from '../chat/Chat';
 import './style.scss';
 
-export type ChatListProps = {
-  chats: Chat[];
-};
-export class ChatList extends Block<ChatListProps> {
+export class ChatList extends Block<AppState> {
   static componentName = 'ChatList';
-  constructor(props: ChatListProps) {
+  constructor(props: AppState) {
+    ChatService.getChats();
     super(props);
+    console.log(props);
   }
   render() {
     return `
     <div class="chat-list">
       {{#each chats}}
-        {{{ ChatItem chat=this }}}
+        {{{ ChatItem chat=this userId=../userId activeChatId=../activeChatId}}}
       {{/each}}
     </div>
     `;

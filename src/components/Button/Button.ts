@@ -1,5 +1,8 @@
 import { Block } from 'utils/Block';
 import './style.scss';
+import { Router } from 'utils/Router';
+
+const router = new Router('#app');
 
 export type IncomingProps = {
   label: string;
@@ -21,22 +24,27 @@ export class Button extends Block<Props> {
   constructor({ label, link, onClick, type = 'button' }: IncomingProps) {
     super({
       label,
-      link,
       type,
       events: {
-        click: onClick,
+        click: () => {
+          if (onClick) {
+            onClick();
+          } else if (link) {
+            router.go(link);
+          }
+        },
       },
     });
   }
   render() {
     return `
-    <{{#if link}}a href="{{link}}"{{else}}button{{/if}}
+    <button
       type={{type}}
       class="button-submit border-radius blue-border"
     >
       {{label}}
       <div data-layout=1></div>
-      </{{#if link}}a{{else}}button{{/if}}>
+      </button>
     `;
   }
 }

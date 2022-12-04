@@ -10,12 +10,7 @@ type IncomingProps = {
 export class ErrorComponent extends Block<IncomingProps> {
   static componentName = 'ErrorComponent';
   constructor(props: IncomingProps) {
-    super({
-      ...props,
-      onClick: () => {
-        history.back();
-      },
-    });
+    super(props);
   }
 
   render() {
@@ -23,7 +18,7 @@ export class ErrorComponent extends Block<IncomingProps> {
     <div class="error df-column-center full-screen">
         <h1 class="error-code">{{codeError}}</h1>
         <p class="error-message">{{message}}</p>
-        {{{ Link text='Go Back' onClick=onClick }}}
+        {{{ Link text='Go Back' link="/" }}}
     </div>
     `;
   }

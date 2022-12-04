@@ -1,45 +1,48 @@
+import { UserService } from 'services/user';
 import { Block } from 'utils/Block';
+import { Screens } from 'utils/screenList';
 
 export class Profile extends Block<{}> {
-  constructor() {
-    super();
+  constructor(props: Record<string, any>) {
+    super({ logout: UserService.logout, ...props });
   }
   render() {
+
     return `
           {{#ProfileLayout}}
             <div class="df-column-center">
-              {{{ Avatar img="" link="../new-avatar"}}}
+              {{{ Avatar img=user.avatar link="${Screens.NewAvatar}"}}}
               {{{ FormInput
                  placeholder='Email' 
                  label="Email" 
                  name="email" 
-                 value="sims0204@gmail.com" 
+                 value=user.email 
                  disabled="true"
               }}}
               {{{ FormInput 
                 placeholder='Login' 
                 label="Login" 
                 name="login" 
-                value="antoshka" 
+                value=user.login
                 disabled="true"
               }}}
               {{{ FormInput
                  placeholder='First name' 
                  label="First name" 
                  name="first_name" 
-                 value="Anton" 
+                 value=user.firstName
                  disabled="true"}}}
               {{{ FormInput
                 placeholder='Second name' 
                 label="Second name" 
                 name="second_name" 
-                value="Abaltusov" 
+                value=user.secondName
                 disabled="true"}}}
               {{{ FormInput
                  placeholder='Nickname' 
                  label="Nickname" 
                  name="display_name" 
-                 value="antoshka" 
+                 value=user.displayName
                  disabled="true"
               }}}
               {{{ FormInput
@@ -47,13 +50,13 @@ export class Profile extends Block<{}> {
                 label="Phone" 
                 name="phone" 
                 type="phone" 
-                value="89127551280" 
+                value=user.phone
                 disabled="true"}}}
-              {{{ Button label='Edit profile' link="../edit-profile"}}}
+              {{{ Button label='Edit profile' link="${Screens.EditProfile}"}}}
               <br>
-              {{{ Button label='Change password' link="../change-password"}}}
+              {{{ Button label='Change password' link="${Screens.ChangePassword}"}}}
               <br>
-              {{{ Link text='logout' link="../sing-in"}}}
+              {{{ Link text='logout' link="../sing-in" onClick=logout}}}
             </div>
             {{/ProfileLayout}}
         `;

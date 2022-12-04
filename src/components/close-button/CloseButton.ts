@@ -1,6 +1,7 @@
 import { Block } from 'utils/Block';
 import './style.scss';
 import img from 'assets/close.svg';
+import { Router } from 'utils/Router';
 
 type IncomingProps = {
   onClick?: () => void;
@@ -11,12 +12,12 @@ type Props = {
     click: () => void;
   };
 };
-
+const router = new Router('#app');
 export class CloseButton extends Block<Props> {
   static componentName = 'CloseButton';
   constructor({ onClick }: IncomingProps) {
     if (!onClick) {
-      onClick = () => (window.location.href = '/massenger');
+      onClick = () => router.back();
     }
     super({
       img,
