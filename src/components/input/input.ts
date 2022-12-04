@@ -29,8 +29,6 @@ export class Input extends Block<Props> {
   }
   focus() {
     const input = this.getContent();
-    console.log(input);
-
     input.focus();
   }
   render() {

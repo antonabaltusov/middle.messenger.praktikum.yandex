@@ -26,6 +26,5 @@ export class Socket {
         );
       }
     }, 5000);
-    console.log(this.ping);
   }
 }

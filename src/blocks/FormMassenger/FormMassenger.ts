@@ -17,7 +17,6 @@ export class FormMassenger extends Form {
           type: 'message',
         })
       );
-      console.log(this.refs);
 
       const input = this.refs[ValidateType.Message] as unknown as FormInput;
       input.setProps({ value: '' });
@@ -26,7 +25,6 @@ export class FormMassenger extends Form {
   }
 
   render() {
-    console.log(this.props);
     return `
     <form class="form-massenger {{#if socket}}{{else}}disabled{{/if}}">
       {{{FormInput 

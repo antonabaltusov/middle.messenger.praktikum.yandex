@@ -22,7 +22,6 @@ export default class Store extends EventBus {
           activeChat: defaultStore?.activeChat,
         } ?? {}
       : defaultStore ?? {};
-    console.log(this._state);
     Store._instance = this;
 
     this.on(Store.EVENT_UPDATE, () => {
