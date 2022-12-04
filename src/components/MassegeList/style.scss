@@ -9,6 +9,8 @@
   vertical-align: bottom;
   min-height: 100%;
   row-gap: 30px;
+  display: flex;
+  flex-direction: column;
   & .day {
     display: flex;
     flex-direction: column;

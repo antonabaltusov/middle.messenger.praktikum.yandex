@@ -9,6 +9,9 @@
     cursor: pointer;
     background-color: rgba($color: black, $alpha: 0.1);
   }
+  &.active {
+    background-color: rgba($color: rgb(225, 0, 255), $alpha: 0.1);
+  }
   & .avatar-wrapper {
     width: 2.5em;
     margin-bottom: 0;

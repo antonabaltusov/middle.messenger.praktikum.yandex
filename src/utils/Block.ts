@@ -6,7 +6,7 @@ import deepEqual from '../helpers/deepEqual';
 // eslint-disable-next-line no-use-before-define
 type Events = Values<typeof Block.EVENTS>;
 
-export default class Block<P extends Record<string, any>> {
+export class Block<P extends Record<string, any>> {
   static EVENTS = {
     INIT: 'init',
     FLOW_CDM: 'flow:component-did-mount',
@@ -236,11 +236,9 @@ export default class Block<P extends Record<string, any>> {
     return fragment.content;
   }
 
-  // show() {
-  //   this._element.style.display = "block";
-  // }
+  show() {
+    this._element!.style.display = 'block';
+  }
 
-  // hide() {
-  //   this._element.style.display = "none";
-  // }
+  componentBeforeUnmount() {}
 }

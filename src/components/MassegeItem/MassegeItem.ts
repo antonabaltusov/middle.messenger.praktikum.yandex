@@ -1,4 +1,4 @@
-import Block from 'utils/Block';
+import { Block } from 'utils/Block';
 import './style.scss';
 
 export type Massege = {
@@ -18,7 +18,7 @@ export class MassegeItem extends Block<Prop> {
   render() {
     return `
     <div class="massenger-main__item {{#if massege.isMy }}right{{/if}}">
-      <p>{{massege.text}}</p>
+      <p>{{massege.content}}</p>
       <span>{{massege.time}}</span>
     </div>
     `;

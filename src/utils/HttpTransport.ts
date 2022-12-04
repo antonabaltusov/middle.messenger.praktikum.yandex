@@ -5,15 +5,15 @@ enum METHODS {
   DELETE = 'DELETE',
 }
 type Options = {
-  tries: number;
-  timeout: number;
-  method: METHODS;
-  headers: Record<string, string>;
+  tries?: number;
+  timeout?: number;
+  method?: METHODS;
+  headers?: Record<string, string>;
   data?: any;
 };
 type RequestProps = {
   url: string;
-  options: Options;
+  options?: Options;
 };
 
 function queryStringify(data: any) {
@@ -28,43 +28,50 @@ function queryStringify(data: any) {
 }
 
 export default class HTTPTransport {
-  static get({ url, options }: RequestProps): Promise<XMLHttpRequest> {
+  url?: string;
+  constructor(url: string) {
+    this.url = url;
+  }
+  static get<P = XMLHttpRequest>({ url, options }: RequestProps): Promise<P> {
     return this.request(
       url,
       { ...options, method: METHODS.GET },
-      options.timeout
+      options?.timeout
     );
   }
 
-  static post({ url, options }: RequestProps): Promise<XMLHttpRequest> {
-    return this.request(
+  static post<P = XMLHttpRequest>({ url, options }: RequestProps): Promise<P> {
+    return this.request<P>(
       url,
       { ...options, method: METHODS.POST },
-      options.timeout
+      options?.timeout
     );
   }
 
-  static put({ url, options }: RequestProps): Promise<XMLHttpRequest> {
+  static put<P = XMLHttpRequest>({ url, options }: RequestProps): Promise<P> {
     return this.request(
       url,
       { ...options, method: METHODS.PUT },
-      options.timeout
+      options?.timeout
     );
   }
 
-  static delete({ url, options }: RequestProps): Promise<XMLHttpRequest> {
+  static delete<P = XMLHttpRequest>({
+    url,
+    options,
+  }: RequestProps): Promise<P> {
     return this.request(
       url,
       { ...options, method: METHODS.DELETE },
-      options.timeout
+      options?.timeout
     );
   }
 
-  static request(
+  static request<P = XMLHttpRequest>(
     url: string,
     options: Options,
     timeout = 5000
-  ): Promise<XMLHttpRequest> {
+  ): Promise<P> {
     const { headers = {}, method, data } = options;
 
     return new Promise(function (resolve, reject) {
@@ -75,15 +82,15 @@ export default class HTTPTransport {
 
       const xhr = new XMLHttpRequest();
       const isGet = method === METHODS.GET;
-
       xhr.open(method, isGet && !!data ? `${url}${queryStringify(data)}` : url);
+      xhr.withCredentials = true;
 
       Object.keys(headers).forEach((key) => {
         xhr.setRequestHeader(key, headers[key]);
       });
 
       xhr.onload = function () {
-        resolve(xhr);
+        resolve(xhr as P);
       };
 
       xhr.onabort = reject;
@@ -94,8 +101,10 @@ export default class HTTPTransport {
 
       if (isGet || !data) {
         xhr.send();
-      } else {
+      } else if (data instanceof FormData) {
         xhr.send(data);
+      } else {
+        xhr.send(JSON.stringify(data));
       }
     });
   }

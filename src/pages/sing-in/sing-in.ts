@@ -1,5 +1,5 @@
-import Block from 'utils/Block';
-
+import { Block } from 'utils/Block';
+import { Screens } from 'utils/screenList';
 export class SingIn extends Block<{}> {
   constructor() {
     super();
@@ -10,7 +10,7 @@ export class SingIn extends Block<{}> {
     {{#GradientModal}}
       <h1>Login</h1>
         {{{FormSingIn}}}
-        {{{Link link="../registration" text="registration"}}}
+        {{{Link link="${Screens.Registration}" text="registration"}}}
     {{/GradientModal}}
   `;
   }

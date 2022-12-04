@@ -1,5 +1,4 @@
-import Block from 'utils/Block';
-
+import { Block } from 'utils/Block';
 export class Page500 extends Block<{}> {
   constructor() {
     super();

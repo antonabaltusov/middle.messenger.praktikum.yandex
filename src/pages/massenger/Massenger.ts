@@ -1,146 +1,25 @@
-import { Chat } from 'components/chat/Chat';
-import { Masseges } from 'components/MassegeList/MassegeList';
-import Block from 'utils/Block';
+import { Block } from 'utils/Block';
+import { Screens } from 'utils/screenList';
+import { ChatService } from 'services/chatService';
 import './style.scss';
-
 export class Massenger extends Block<{}> {
-  constructor() {
-    const chats: Chat[] = [
-      {
-        img: '',
-        chatname: 'mama',
-        newMessageCount: 99,
-      },
-      {
-        img: '',
-        chatname: 'love',
-        newMessageCount: 1,
-      },
-      {
-        img: '',
-        chatname: 'bro',
-        newMessageCount: 10,
-      },
-    ];
-    const massegess: Masseges[] = [
-      {
-        date: '1 мая',
-        masseges: [
-          {
-            text: 'привет как дела?',
-            time: '15:30',
-            isMy: true,
-          },
-          {
-            text: 'все хорошо',
-            time: '15:35',
-            isMy: false,
-          },
-          {
-            text: 'хорошо',
-            time: '15:37',
-            isMy: true,
-          },
-        ],
-      },
-      {
-        date: '2 мая',
-        masseges: [
-          {
-            text: `гулять??ваваи ваив вааи larem fdbdfb dfbdfbgrb rgbfgb dgbdfb 
-            rgbfgbdfg dfghndfhn dfhndfhn dfhndf hndfh ndfhndfhn dfhndfh dghndghndfh n`,
-            time: '16:30',
-            isMy: true,
-          },
-          {
-            text: 'все хорошо 111',
-            time: '17:35',
-            isMy: false,
-          },
-          {
-            text: 'хорошо 2222',
-            time: '18:37',
-            isMy: true,
-          },
-        ],
-      },
-      {
-        date: '2 мая',
-        masseges: [
-          {
-            text: `гулять??ваваи ваив вааи larem fdbdfb dfbdfbgrb rgbfgb dgbdfb 
-            rgbfgbdfg dfghndfhn dfhndfhn dfhndf hndfh ndfhndfhn dfhndfh dghndghndfh n`,
-            time: '16:30',
-            isMy: true,
-          },
-          {
-            text: 'все хорошо 111',
-            time: '17:35',
-            isMy: false,
-          },
-          {
-            text: 'хорошо 2222',
-            time: '18:37',
-            isMy: true,
-          },
-        ],
-      },
-      {
-        date: '2 мая',
-        masseges: [
-          {
-            text: `гулять??ваваи ваив вааи larem fdbdfb dfbdfbgrb rgbfgb dgbdfb 
-            rgbfgbdfg dfghndfhn dfhndfhn dfhndf hndfh ndfhndfhn dfhndfh dghndghndfh n`,
-            time: '16:30',
-            isMy: true,
-          },
-          {
-            text: 'все хорошо 111',
-            time: '17:35',
-            isMy: false,
-          },
-          {
-            text: 'хорошо 2222',
-            time: '18:37',
-            isMy: true,
-          },
-        ],
-      },
-      {
-        date: '2 мая',
-        masseges: [
-          {
-            text: `гулять??ваваи ваив вааи larem fdbdfb dfbdfbgrb rgbfgb dgbdfb 
-            rgbfgbdfg dfghndfhn dfhndfhn dfhndf hndfh ndfhndfhn dfhndfh dghndghndfh n`,
-            time: '16:30',
-            isMy: true,
-          },
-          {
-            text: 'все хорошо 111',
-            time: '17:35',
-            isMy: false,
-          },
-          {
-            text: 'хорошо 2222',
-            time: '18:37',
-            isMy: true,
-          },
-        ],
-      },
-    ];
-
-    super({ chats, massegess });
+  constructor(props: Record<string, any>) {
+    super({
+      newChats: ChatService.newChat,
+      ...props,
+    });
   }
   render() {
     return `
         {{#Body}}
           <div class="massenger">
             <div class="massenger-menu">
-              {{{ Link text='profile' link="../profile"}}}
+              {{{ Link text='profile' link="${Screens.Profile}"}}}
               {{{ ChatList chats=chats }}}
+              {{{Button label="новый чат" onClick=newChats}}}
             </div>
             <div class="massenger-main">
-            {{{ MassegeList massegess=massegess}}}
+            {{{ MassegeList }}}
               <div class="massenger-main__input-block">
                {{{FormMassenger}}}
               </div>
