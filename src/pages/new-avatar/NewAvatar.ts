@@ -34,7 +34,6 @@ export class NewAvatar extends Block<{}> {
               router.go(Screens.Profile);
             } catch (err) {
               console.error(err);
-            } finally {
             }
           }
         },

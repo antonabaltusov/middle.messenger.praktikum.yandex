@@ -1,11 +1,11 @@
 import { Block } from 'utils/Block';
 import { Screens } from 'utils/screenList';
-import { ChatService } from 'services/chatService';
+import { chatService } from 'services/chatService';
 import './style.scss';
 export class Massenger extends Block<{}> {
   constructor(props: Record<string, any>) {
     super({
-      newChats: ChatService.newChat,
+      newChats: chatService.newChat,
       ...props,
     });
   }

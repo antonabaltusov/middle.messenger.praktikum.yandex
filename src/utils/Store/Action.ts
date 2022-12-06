@@ -1,9 +1,7 @@
 import { transformMessage } from 'utils/apiTransformers';
 import { mergeDeep } from 'utils/mergeDeep';
-import store, { Actions } from '.';
+import store from '.';
 import { MessageType } from '../../typings/app.d';
-
-//const store = new Store();
 
 const getUserState = () => {
   const state = store.getState();
@@ -12,9 +10,6 @@ const getUserState = () => {
 const addUserData = (newUserInfo: User) => {
   const user = getUserState();
   store.set('user', mergeDeep(user, newUserInfo));
-};
-const addAppIsInited = () => {
-  store.set('appIsInited', true);
 };
 
 const addChatList = (data: Chats) => {
@@ -63,10 +58,4 @@ const addMasseges = (chatId: number, massseges: MessageDTO[]) => {
   }
 };
 
-export {
-  addUserData,
-  addAppIsInited,
-  addChatList,
-  changeIdActiveChat,
-  addMasseges,
-};
+export { addUserData, addChatList, changeIdActiveChat, addMasseges };

@@ -1,11 +1,11 @@
-import { ChatService } from 'services/chatService';
+import { chatService } from 'services/chatService';
 import { Block } from 'utils/Block';
 import './style.scss';
 
 export class ChatList extends Block<AppState> {
   static componentName = 'ChatList';
   constructor(props: AppState) {
-    ChatService.getChats();
+    chatService.getChats();
     super(props);
   }
   render() {

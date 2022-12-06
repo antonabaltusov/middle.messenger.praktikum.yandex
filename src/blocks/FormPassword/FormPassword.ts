@@ -41,7 +41,6 @@ export class FormPassword extends Form {
         router.go(Screens.Profile);
       } catch (err) {
         console.error(err);
-      } finally {
       }
     }
   }

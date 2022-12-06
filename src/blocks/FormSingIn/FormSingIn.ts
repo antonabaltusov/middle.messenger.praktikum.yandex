@@ -33,7 +33,6 @@ export class FormSingIn extends Form {
         router.go(Screens.Massenger);
       } catch (err) {
         console.error(err);
-      } finally {
       }
     }
   }

@@ -74,7 +74,6 @@ declare global {
     isMy?: boolean;
   };
   export type AppState = {
-    appIsInited: boolean;
     isLoading: boolean;
     user: User | null;
     chats: Chats;

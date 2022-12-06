@@ -98,7 +98,6 @@ export class Block<P extends Record<string, any>> {
     }
   }
 
-  // Может переопределять пользователь, необязательно трогать
   componentDidUpdate(oldProp: P, newPropp: P): boolean {
     return !deepEqual(oldProp, newPropp);
   }

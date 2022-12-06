@@ -24,7 +24,7 @@ export class FormRegistr extends Form {
           phone: inputs.phone,
         };
         const response = await authAPI.registr(data);
-        
+
         if (apiHasError(response)) {
           this.refs.ErrorForm?.setProps({ text: response.reason });
           return;
@@ -32,11 +32,10 @@ export class FormRegistr extends Form {
 
         const user = await authAPI.me();
         addUserData(transformUser(user));
-        
+
         router.go(Screens.Massenger);
       } catch (err) {
         console.error(err);
-      } finally {
       }
     }
   }

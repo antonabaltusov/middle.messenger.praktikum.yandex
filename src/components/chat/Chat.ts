@@ -1,6 +1,5 @@
-import { ChatService } from 'services/chatService';
+import { chatService } from 'services/chatService';
 import { Block } from 'utils/Block';
-import { Actions } from 'utils/Store';
 import './style.scss';
 
 type ChatProps = {
@@ -29,13 +28,13 @@ export class ChatItem extends Block<ChatProps> {
           if (el.id === 'btnAddUser') {
             this.addUser();
           } else if (el.id === 'btnDeleteChat') {
-            ChatService.deleteChat(this.props.chat.id);
+            chatService.deleteChat(this.props.chat.id);
           } else if (el.classList.contains('delete-user')) {
             if (this.props.admin) {
               this.deleteUser(+el.id);
             }
           } else {
-            ChatService.openChat(this.props.chat.id);
+            chatService.openChat(this.props.chat.id);
           }
         },
       },
@@ -43,13 +42,13 @@ export class ChatItem extends Block<ChatProps> {
     this.getUsers();
   }
   async addUser() {
-    const res = await ChatService.addUsertoChat(this.props.chat.id);
+    const res = await chatService.addUsertoChat(this.props.chat.id);
     if (res) {
       this.getUsers();
     }
   }
   async deleteUser(userId: number) {
-    const res = await ChatService.deleteUserFromChat(
+    const res = await chatService.deleteUserFromChat(
       this.props.chat.id,
       userId
     );
@@ -64,7 +63,7 @@ export class ChatItem extends Block<ChatProps> {
     };
     const id = this.props.chat.id;
 
-    const response = await ChatService.getUsersByChats(id);
+    const response = await chatService.getUsersByChats(id);
 
     newProp.users = response?.filter((user) => {
       if (user.role === userRoleChat.admin && user.id === this.props.userId) {

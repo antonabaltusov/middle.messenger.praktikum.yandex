@@ -5,7 +5,7 @@ import { Router } from 'utils/Router';
 import { Screens } from 'utils/screenList';
 
 const router = new Router('#app');
-export const UserService = {
+export const userService = {
   async logout() {
     try {
       const response = await authAPI.logout();

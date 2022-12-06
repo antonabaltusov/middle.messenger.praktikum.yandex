@@ -1,6 +1,6 @@
 import { userRoleChat } from 'components/chat/Chat';
 import HTTPTransport from 'utils/HttpTransport';
-import { baseUrl, baseHeaders } from './base-api';
+import { BASEURL, BASEHEADERS } from './base-api';
 export type APIError = {
   reason: string;
 };
@@ -39,34 +39,32 @@ type RegistrRequestData = {
   phone: string;
 };
 
-//type LoginResponseData = UserDTO | APIError;
-
 export const authAPI = {
   login: (data: LoginRequestData) =>
     HTTPTransport.post({
-      url: baseUrl + 'auth/signin',
+      url: BASEURL + 'auth/signin',
       options: {
         data,
-        headers: { ...baseHeaders },
+        headers: { ...BASEHEADERS },
       },
     }),
 
   me: () =>
     HTTPTransport.get({
-      url: baseUrl + 'auth/user',
+      url: BASEURL + 'auth/user',
       options: {
-        headers: { ...baseHeaders },
+        headers: { ...BASEHEADERS },
       },
     }).then((data) => JSON.parse(data.response)),
 
-  logout: () => HTTPTransport.post({ url: baseUrl + 'auth/logout' }),
+  logout: () => HTTPTransport.post({ url: BASEURL + 'auth/logout' }),
 
   registr: (data: RegistrRequestData) =>
     HTTPTransport.post({
-      url: baseUrl + 'auth/signup',
+      url: BASEURL + 'auth/signup',
       options: {
         data,
-        headers: { ...baseHeaders },
+        headers: { ...BASEHEADERS },
       },
     }).then((data) => JSON.parse(data.response)),
 };

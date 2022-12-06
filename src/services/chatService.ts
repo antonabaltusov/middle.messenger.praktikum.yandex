@@ -2,11 +2,12 @@ import { chatAPI } from 'api/chat-api';
 import { apiHasError } from 'utils/apiHasError';
 import { transformUsersChats } from 'utils/apiTransformers';
 import { Actions } from 'utils/Store';
-import { UserService } from './user';
+import { userService } from './userService';
 import store from 'utils/Store';
 import { MessageType } from '../typings/app.d';
+import { BASEURLWEBSOCKET } from 'api/base-api';
 
-export const ChatService = {
+export const chatService = {
   async getChats() {
     try {
       const response = await chatAPI.getChats();
@@ -43,7 +44,7 @@ export const ChatService = {
           return;
         }
 
-        ChatService.getChats();
+        chatService.getChats();
       } catch (err) {
         console.error(err);
       }
@@ -53,7 +54,7 @@ export const ChatService = {
     const loginUser = prompt('login of user', 'antonabaltusovAAA');
     if (loginUser) {
       try {
-        const usersByLogin = await UserService.getUsersByLogin(loginUser);
+        const usersByLogin = await userService.getUsersByLogin(loginUser);
         if (usersByLogin && usersByLogin.length) {
           const userId = usersByLogin[0].id;
           const response = await chatAPI.addUsertoChat({
@@ -80,7 +81,7 @@ export const ChatService = {
         return;
       }
 
-      ChatService.getChats();
+      chatService.getChats();
     } catch (err) {
       console.error(err);
     }
@@ -109,7 +110,7 @@ export const ChatService = {
         return;
       }
 
-      ChatService.createSocket(chatId, response.token);
+      chatService.createSocket(chatId, response.token);
     } catch (err) {
       console.error(err);
     }
@@ -117,7 +118,7 @@ export const ChatService = {
   createSocket(chatId: number, token: number) {
     const state = store.getState();
     const socket = new WebSocket(
-      `wss://ya-praktikum.tech/ws/chats/${state.user?.id}/${chatId}/${token}`
+      `${BASEURLWEBSOCKET}${state.user?.id}/${chatId}/${token}`
     );
 
     socket.addEventListener('open', () => {
@@ -136,7 +137,7 @@ export const ChatService = {
         console.log('Соединение закрыто чисто');
       } else {
         console.log('Обрыв соединения');
-        ChatService.createSocket(chatId, token);
+        chatService.createSocket(chatId, token);
       }
 
       console.log(`Код: ${event.code} | Причина: ${event.reason}`);

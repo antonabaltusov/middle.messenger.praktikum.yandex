@@ -1,7 +1,7 @@
 import { authAPI } from 'api/login-api';
 import { apiHasError } from 'utils/apiHasError';
 import { transformUser } from 'utils/apiTransformers';
-import { addAppIsInited, addUserData } from 'utils/Store/Action';
+import { addUserData } from 'utils/Store/Action';
 import { Router } from 'utils/Router';
 import { Screens } from 'utils/screenList';
 
@@ -19,7 +19,5 @@ export async function initApp() {
   } catch (err) {
     console.error(err);
     router.go(Screens.SingIn);
-  } finally {
-    addAppIsInited();
   }
 }
