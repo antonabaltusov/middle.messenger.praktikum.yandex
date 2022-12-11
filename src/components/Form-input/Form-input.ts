@@ -1,6 +1,7 @@
 import { Block } from 'utils/Block';
 import { validateInput, ValidateType } from 'helpers/validateForm';
 import './style.scss';
+import Input from 'components/input';
 
 type IncomingProps = {
   disabled?: boolean;
@@ -49,6 +50,10 @@ export class FormInput extends Block<Props> {
       this.element?.classList.remove('error');
     }
     return { name: inputEl.name, value, valid: !errors.length };
+  }
+  focus() {
+    const input = this.refs['Input'] as unknown as Input;
+    input.focus();
   }
   render() {
     return `

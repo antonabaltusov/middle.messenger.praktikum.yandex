@@ -98,7 +98,6 @@ export class Block<P extends Record<string, any>> {
     }
   }
 
-  // Может переопределять пользователь, необязательно трогать
   componentDidUpdate(oldProp: P, newPropp: P): boolean {
     return !deepEqual(oldProp, newPropp);
   }
@@ -236,11 +235,9 @@ export class Block<P extends Record<string, any>> {
     return fragment.content;
   }
 
-  // show() {
-  //   this._element.style.display = "block";
-  // }
+  show() {
+    this._element!.style.display = 'block';
+  }
 
-  // hide() {
-  //   this._element.style.display = "none";
-  // }
+  componentBeforeUnmount() {}
 }

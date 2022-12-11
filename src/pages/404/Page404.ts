@@ -1,5 +1,4 @@
 import { Block } from 'utils/Block';
-
 export class Page404 extends Block<{}> {
   constructor() {
     super();

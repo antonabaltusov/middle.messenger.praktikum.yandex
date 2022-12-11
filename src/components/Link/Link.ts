@@ -1,6 +1,8 @@
 import { Block } from 'utils/Block';
 import './style.scss';
+import { Router } from 'utils/Router';
 
+const router = new Router('#app');
 type IncomingProps = {
   link: string;
   text: string;
@@ -20,11 +22,17 @@ export class Link extends Block<Props> {
     super({
       ...props,
       events: {
-        click: onClick,
+        click: () => {
+          if (onClick) {
+            onClick();
+          } else {
+            router.go(props.link);
+          }
+        },
       },
     });
   }
   render() {
-    return '<a {{#if link}}href="{{link}}"{{/if}} class="link">{{text}}</a>';
+    return '<a class="link">{{text}}</a>';
   }
 }

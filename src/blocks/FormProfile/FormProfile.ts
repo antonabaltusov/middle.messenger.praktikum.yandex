@@ -1,14 +1,41 @@
 import Form from 'components/Form';
 import { resultValidProps } from 'components/Form/Form';
 import { ValidateType } from 'helpers/validateForm';
+import { apiHasError } from 'utils/apiHasError';
 
 import './style.scss';
-
+import { Screens } from 'utils/screenList';
+import { userAPI } from 'api/user-api';
+import { transformUser } from 'utils/apiTransformers';
+import { addUserData } from 'utils/Store/Action';
+import { Router } from 'utils/Router';
+const router = new Router('#app');
 export class FormProfile extends Form {
   static componentName = 'FormProfile';
-  resultValid({ valid }: resultValidProps) {
+  async resultValid({ valid, inputs }: resultValidProps) {
     if (valid) {
-      window.location.href = '/profile';
+      try {
+        const data = {
+          first_name: inputs.first_name,
+          second_name: inputs.second_name,
+          display_name: inputs.display_name,
+          login: inputs.login,
+          email: inputs.email,
+          phone: inputs.phone,
+        };
+        const response = await userAPI.editUser(data);
+
+        if (apiHasError(response)) {
+          this.refs.ErrorForm?.setProps({ text: response.reason });
+          return;
+        }
+        this.refs.ErrorForm?.setProps({ text: '' });
+
+        addUserData(transformUser(response));
+        router.go(Screens.Profile);
+      } catch (err) {
+        console.error(err);
+      }
     }
   }
 
@@ -17,7 +44,7 @@ export class FormProfile extends Form {
     <form class="df-column-center">
       {{{FormInput 
         name="${ValidateType.Email}" 
-        value="sims0204@gmail.com"
+        value=user.email
         placeholder="Email" 
         type="email"
         label="email"
@@ -25,7 +52,7 @@ export class FormProfile extends Form {
       }}}
       {{{FormInput 
         name="${ValidateType.Login}" 
-        value="antoshka"
+        value=user.login
         placeholder="Login" 
         type="text"
         label="login"
@@ -33,7 +60,7 @@ export class FormProfile extends Form {
       }}}
       {{{FormInput 
         name="${ValidateType.FirstName}" 
-        value="Anton"
+        value=user.firstName
         placeholder="First name" 
         type="text"
         label="First name"
@@ -41,7 +68,7 @@ export class FormProfile extends Form {
       }}}
       {{{FormInput 
         name="${ValidateType.SecondName}" 
-        value="Abaltusov"
+        value=user.secondName
         placeholder="Second name" 
         type="text"
         label="Second name"
@@ -49,7 +76,7 @@ export class FormProfile extends Form {
       }}}
       {{{FormInput 
         name="display_name" 
-        value="antoshka"
+        value=user.displayName
         placeholder="Nickname" 
         type="text"
         label="Second name"
@@ -57,12 +84,13 @@ export class FormProfile extends Form {
       }}}
       {{{FormInput 
         name="${ValidateType.Phone}" 
-        value="89127551280"
+        value=user.phone
         placeholder="Phone" 
         type="text"
         label="phone"
         ref="${ValidateType.Phone}"
       }}}
+      {{{InputError ref="ErrorForm"}}}
       {{{Button type="submit" label="Save"}}}
     </form>
     `;
