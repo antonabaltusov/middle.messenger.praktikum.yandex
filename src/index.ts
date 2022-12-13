@@ -1,7 +1,7 @@
-import { Router } from 'utils/Router';
+import { Router } from 'utils/Router/index';
 import { initRouter } from 'services/initRouter';
-import * as components from 'components';
-import * as blocks from 'blocks';
+import * as components from 'components/index';
+import * as blocks from 'blocks/index';
 import registerComponent from 'utils/registerComponent';
 import { initApp } from 'services/initApp';
 

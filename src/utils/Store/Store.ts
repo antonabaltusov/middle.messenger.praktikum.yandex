@@ -13,7 +13,7 @@ export default class Store extends EventBus {
 
     super();
 
-    const savedState = localStorage.getItem(Store.STORE_NAME);
+    const savedState = null; //localStorage.getItem(Store.STORE_NAME);
 
     this._state = savedState
       ? {
@@ -25,7 +25,7 @@ export default class Store extends EventBus {
     Store._instance = this;
 
     this.on(Store.EVENT_UPDATE, () => {
-      localStorage.setItem(Store.STORE_NAME, JSON.stringify(this._state));
+      //localStorage.setItem(Store.STORE_NAME, JSON.stringify(this._state));
     });
   }
 

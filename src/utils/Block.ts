@@ -1,12 +1,12 @@
 import EventBus from './EventBus';
-import { nanoid } from 'nanoid';
+import uuid1 from '../../node_modules/uuid/dist/v1';
 import Handlebars from 'handlebars';
 import deepEqual from '../helpers/deepEqual';
 
 // eslint-disable-next-line no-use-before-define
 type Events = Values<typeof Block.EVENTS>;
 
-export class Block<P extends Record<string, any>> {
+class Block<P extends Record<string, any>> {
   static EVENTS = {
     INIT: 'init',
     FLOW_CDM: 'flow:component-did-mount',
@@ -17,7 +17,7 @@ export class Block<P extends Record<string, any>> {
   static componentName: string;
 
   private _element: Nullable<HTMLElement> = null;
-  public id = 'id-' + nanoid(6);
+  public id = 'id-' + uuid1(6);
 
   protected readonly props: P;
   // eslint-disable-next-line no-use-before-define
@@ -84,7 +84,7 @@ export class Block<P extends Record<string, any>> {
   }
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  componentDidMount(oldProps: P) {}
+  componentDidMount(_: P) {}
 
   dispatchComponentDidMount(): void {
     this.eventBus().emit(Block.EVENTS.FLOW_CDM);
@@ -102,7 +102,7 @@ export class Block<P extends Record<string, any>> {
     return !deepEqual(oldProp, newPropp);
   }
 
-  setProps = (nextProps: P): void => {
+  setProps = (nextProps: Partial<P>): void => {
     if (!nextProps) {
       return;
     }
@@ -220,7 +220,9 @@ export class Block<P extends Record<string, any>> {
         return;
       }
 
-      const stubChilds = stub.childNodes.length ? stub.childNodes : [];
+      const stubChilds = stub.childNodes.length
+        ? Array.from(stub.childNodes)
+        : [];
 
       const content = child.getContent();
       stub.replaceWith(content!);
@@ -241,3 +243,4 @@ export class Block<P extends Record<string, any>> {
 
   componentBeforeUnmount() {}
 }
+export { Block };

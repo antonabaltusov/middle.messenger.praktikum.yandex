@@ -1,7 +1,6 @@
 import { chatService } from 'services/chatService';
 import { Block } from 'utils/Block';
 import './style.scss';
-
 type ChatProps = {
   userId: number;
   chat: Chat;

@@ -1,9 +1,9 @@
 import { chatAPI } from 'api/chat-api';
 import { apiHasError } from 'utils/apiHasError';
 import { transformUsersChats } from 'utils/apiTransformers';
-import { Actions } from 'utils/Store';
+import { Actions } from 'utils/Store/index';
 import { userService } from './userService';
-import store from 'utils/Store';
+import store from 'utils/Store/index';
 import { MessageType } from '../typings/app.d';
 import { BASEURLWEBSOCKET } from 'api/base-api';
 
@@ -151,9 +151,7 @@ export const chatService = {
       Actions.addMasseges(chatId, Array.isArray(message) ? message : [message]);
     });
 
-    socket.addEventListener('error', (event) => {
-      console.log('Ошибка', event.message);
-    });
+    socket.addEventListener('error', () => {});
     store.set('socket', socket);
   },
 };

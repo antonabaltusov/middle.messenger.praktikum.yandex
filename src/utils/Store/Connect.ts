@@ -1,5 +1,5 @@
 import { Block } from 'utils/Block';
-import store from '.';
+import store from './index';
 import Store from './Store';
 
 export default function Connect(

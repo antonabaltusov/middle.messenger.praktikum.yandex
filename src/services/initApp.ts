@@ -2,7 +2,7 @@ import { authAPI } from 'api/login-api';
 import { apiHasError } from 'utils/apiHasError';
 import { transformUser } from 'utils/apiTransformers';
 import { addUserData } from 'utils/Store/Action';
-import { Router } from 'utils/Router';
+import { Router } from 'utils/Router/index';
 import { Screens } from 'utils/screenList';
 
 const router = new Router('#app');
