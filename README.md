@@ -13,3 +13,5 @@
 Тестами покрыты Block, Store, Router, Route и HTTPTransport.
 Для тестов использованы библиотеки Mocha, Chai.
 Настроен precommit для предотвращения комита и наличием ошибок в тестах.
+ссылка на проект развернутый на render.com(взамен Heroku) - https://message-travel.onrender.com/
+ссылка на проект развернутый на netlify - https://deploy--eloquent-bunny-4276bd.netlify.app/
