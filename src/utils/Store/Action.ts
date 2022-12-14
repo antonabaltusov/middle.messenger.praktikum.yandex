@@ -1,7 +1,7 @@
 import { transformMessage } from 'utils/apiTransformers';
 import { mergeDeep } from 'utils/mergeDeep';
 import store from './index';
-import { MessageType } from '../../typings/app.d';
+import { MessageType } from 'typings/app.d';
 
 const getUserState = () => {
   const state = store.getState();

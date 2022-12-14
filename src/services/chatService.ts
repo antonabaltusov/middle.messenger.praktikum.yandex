@@ -4,7 +4,7 @@ import { transformUsersChats } from 'utils/apiTransformers';
 import { Actions } from 'utils/Store/index';
 import { userService } from './userService';
 import store from 'utils/Store/index';
-import { MessageType } from '../typings/app.d';
+import { MessageType } from 'typings/app.d';
 import { BASEURLWEBSOCKET } from 'api/base-api';
 
 export const chatService = {

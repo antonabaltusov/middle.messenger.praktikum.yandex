@@ -66,10 +66,12 @@ const config = {
       blocks: path.resolve(__dirname, 'src/blocks/'),
       assets: path.resolve(__dirname, 'src/assets/'),
       styles: path.resolve(__dirname, 'src/styles/'),
+      typings: path.resolve(__dirname, 'src/typings/'),
       handlebars: path.resolve(
         __dirname,
         'node_modules/handlebars/dist/handlebars'
       ),
+      uuid: path.resolve(__dirname, 'node_modules/uuid'),
     },
   },
 };

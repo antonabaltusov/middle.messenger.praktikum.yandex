@@ -1,9 +1,9 @@
 {
   "compilerOptions": {
+    "declaration": true,
     "target": "es5",
-    "module": "commonjs",
+    "module": "CommonJS",
     "typeRoots": ["node_modules/@types", "typings/app.d.ts"],
-    "declaration": false,
     "sourceMap": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
@@ -14,9 +14,19 @@
     "noUnusedParameters": true,
     "skipLibCheck": true,
     "allowJs": true,
-    "baseUrl": "./src",
+    "baseUrl": ".",
     "paths": {
-      "utils/*": ["utils/*"]
+      "utils/*": ["./src/utils/*"],
+      "pages/*": ["./src/pages/*"],
+      "components/*": ["./src/components/*"],
+      "services/*": ["./src/services/*"],
+      "helpers/*": ["./src/helpers/*"],
+      "api/*": ["./src/api/*"],
+      "blocks/*": ["./src/blocks/*"],
+      "assets/*": ["./src/assets/*"],
+      "styles/*": ["./src/styles/*"],
+      "typings/*": ["./src/typings/*"],
+      "uuid/*": ["./node_modules/uuid/dist/v1.js"]
     }
   },
   "exclude": ["node_modules"],

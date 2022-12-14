@@ -1,8 +1,8 @@
 import EventBus from './EventBus';
-import uuid1 from '../../node_modules/uuid/dist/v1';
+import { v1 as uuid1 } from 'uuid';
 import Handlebars from 'handlebars';
 import deepEqual from '../helpers/deepEqual';
-
+import { Nullable } from 'typings/app';
 // eslint-disable-next-line no-use-before-define
 type Events = Values<typeof Block.EVENTS>;
 
@@ -17,7 +17,7 @@ class Block<P extends Record<string, any>> {
   static componentName: string;
 
   private _element: Nullable<HTMLElement> = null;
-  public id = 'id-' + uuid1(6);
+  public id = 'id-' + uuid1();
 
   protected readonly props: P;
   // eslint-disable-next-line no-use-before-define

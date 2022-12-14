@@ -3,6 +3,7 @@ export enum MessageType {
   ping = 'ping',
   pong = 'pong',
 }
+export type Nullable<T> = T | null;
 declare global {
   export type Nullable<T> = T | null;
 

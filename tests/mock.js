@@ -1,28 +1,15 @@
-import 'mock-local-storage';
-require.extensions['.scss'] = function () {
-  return null;
-};
-// const jsdom = require('jsdom');
-// const { JSDOM } = jsdom;
-// const { window } = new JSDOM(``, {
-//   url: 'http://localhost',
-// });
-// jsdom.reconfigure({ url: 'https://example.com/' });
+const jsdom = require('jsdom');
 
-// // new FinalizationRegistry(() => {});
-// const { window } = new JSDOM('<main id="root" class="root"></main>', {
-//   url: 'http://localhost:1234',
-// });
+const { JSDOM } = jsdom;
 
-// const { document } = window;
-// global.window = window;
-// XMLHttpRequest = window.XMLHttpRequest;
-// global.document = document;
-global.window = {};
-window.localStorage = global.localStorage;
-// Object.defineProperty(window, 'localStorage', {
-//   value: global.localStorage,
-//   configurable: true,
-//   enumerable: true,
-//   writable: true,
-// });
+const dom = new JSDOM('<main id="root" class="root"></main>', {
+  url: 'https://localhost:1234',
+  storageQuota: 10000000,
+});
+const { window } = dom;
+const { localStorage } = window;
+
+global.localStorage = localStorage;
+
+global.localStorage.setItem('new', 'value');
+console.log(global.localStorage.getItem('new'));
