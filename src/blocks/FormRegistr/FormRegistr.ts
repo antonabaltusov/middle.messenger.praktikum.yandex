@@ -1,11 +1,10 @@
 import { authAPI } from 'api/login-api';
-import Form from 'components/Form';
+import Form from 'components/Form/index';
 import { resultValidProps } from 'components/Form/Form';
 import { ValidateType } from 'helpers/validateForm';
 import { apiHasError } from 'utils/apiHasError';
-
 import './style.scss';
-import { Router } from 'utils/Router';
+import { Router } from 'utils/Router/index';
 import { Screens } from 'utils/screenList';
 import { transformUser } from 'utils/apiTransformers';
 import { addUserData } from 'utils/Store/Action';
@@ -24,7 +23,7 @@ export class FormRegistr extends Form {
           phone: inputs.phone,
         };
         const response = await authAPI.registr(data);
-        
+
         if (apiHasError(response)) {
           this.refs.ErrorForm?.setProps({ text: response.reason });
           return;
@@ -32,11 +31,10 @@ export class FormRegistr extends Form {
 
         const user = await authAPI.me();
         addUserData(transformUser(user));
-        
+
         router.go(Screens.Massenger);
       } catch (err) {
         console.error(err);
-      } finally {
       }
     }
   }

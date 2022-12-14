@@ -1,8 +1,7 @@
 import { Block } from 'utils/Block';
 import { validateInput, ValidateType } from 'helpers/validateForm';
+import Input from 'components/input/index';
 import './style.scss';
-import Input from 'components/input';
-
 type IncomingProps = {
   disabled?: boolean;
   value?: string;

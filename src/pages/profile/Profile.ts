@@ -1,13 +1,12 @@
-import { UserService } from 'services/user';
+import { userService } from 'services/userService';
 import { Block } from 'utils/Block';
 import { Screens } from 'utils/screenList';
 
 export class Profile extends Block<{}> {
   constructor(props: Record<string, any>) {
-    super({ logout: UserService.logout, ...props });
+    super({ logout: userService.logout, ...props });
   }
   render() {
-
     return `
           {{#ProfileLayout}}
             <div class="df-column-center">

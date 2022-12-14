@@ -1,14 +1,13 @@
-import Form from 'components/Form';
+import Form from 'components/Form/index';
 import { resultValidProps } from 'components/Form/Form';
 import { ValidateType } from 'helpers/validateForm';
 import { apiHasError } from 'utils/apiHasError';
-
 import './style.scss';
 import { Screens } from 'utils/screenList';
 import { userAPI } from 'api/user-api';
 import { transformUser } from 'utils/apiTransformers';
 import { addUserData } from 'utils/Store/Action';
-import { Router } from 'utils/Router';
+import { Router } from 'utils/Router/index';
 const router = new Router('#app');
 export class FormProfile extends Form {
   static componentName = 'FormProfile';
@@ -35,7 +34,6 @@ export class FormProfile extends Form {
         router.go(Screens.Profile);
       } catch (err) {
         console.error(err);
-      } finally {
       }
     }
   }

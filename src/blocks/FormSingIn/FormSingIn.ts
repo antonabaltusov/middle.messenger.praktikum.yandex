@@ -1,11 +1,10 @@
 import { authAPI } from 'api/login-api';
-import Form from 'components/Form';
+import Form from 'components/Form/index';
 import { resultValidProps } from 'components/Form/Form';
 import { ValidateType } from 'helpers/validateForm';
 import { apiHasError } from 'utils/apiHasError';
-
 import './style.scss';
-import { Router } from 'utils/Router';
+import { Router } from 'utils/Router/index';
 import { Screens } from 'utils/screenList';
 import { addUserData } from 'utils/Store/Action';
 import { transformUser } from 'utils/apiTransformers';
@@ -33,7 +32,6 @@ export class FormSingIn extends Form {
         router.go(Screens.Massenger);
       } catch (err) {
         console.error(err);
-      } finally {
       }
     }
   }

@@ -1,8 +1,7 @@
 import { Block } from 'utils/Block';
+import { Router } from 'utils/Router/index';
 import './style.scss';
 import img from 'assets/close.svg';
-import { Router } from 'utils/Router';
-
 type IncomingProps = {
   onClick?: () => void;
 };

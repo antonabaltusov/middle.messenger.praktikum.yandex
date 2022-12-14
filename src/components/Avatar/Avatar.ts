@@ -1,8 +1,8 @@
 import { Block } from 'utils/Block';
-import imgDefault from 'assets/avatar-default.png';
-import './style.scss';
-import { Router } from 'utils/Router';
+import { Router } from 'utils/Router/index';
 import { Screens } from 'utils/screenList';
+import './style.scss';
+import imgDefault from 'assets/avatar-default.png';
 type AvatarIncomingProps = {
   img: string;
   link: string;

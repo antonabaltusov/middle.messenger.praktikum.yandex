@@ -1,11 +1,9 @@
-import { FormInput } from 'components';
-import Form from 'components/Form';
+import { FormInput } from 'components/index';
+import Form from 'components/Form/index';
 import { resultValidProps } from 'components/Form/Form';
 import { ValidateType } from 'helpers/validateForm';
-import store from 'utils/Store';
-const socket = store.getState().socket;
+import store from 'utils/Store/index';
 import './style.scss';
-
 export class FormMassenger extends Form {
   static componentName = 'FormMassenger';
   async resultValid({ valid, inputs }: resultValidProps) {

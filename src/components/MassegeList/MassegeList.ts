@@ -1,6 +1,5 @@
 import { Block } from 'utils/Block';
 import './style.scss';
-
 export type Masseges = {
   date: string;
   masseges: Message[];
@@ -13,7 +12,7 @@ type Prop = {
 
 export class MassegeList extends Block<Prop> {
   static componentName = 'MassegeList';
-  ping: number | undefined;
+  ping: ReturnType<typeof setInterval> | undefined;
   constructor(prop: Prop) {
     super(prop);
   }

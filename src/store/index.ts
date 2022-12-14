@@ -1,5 +1,4 @@
 export const defaultState: AppState = {
-  appIsInited: false,
   isLoading: false,
   user: null,
   chats: [],

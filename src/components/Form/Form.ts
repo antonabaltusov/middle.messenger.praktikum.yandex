@@ -1,7 +1,6 @@
-import FormInput from 'components/Form-input';
+import FormInput from 'components/Form-input/index';
 import { Block } from 'utils/Block';
 import './style.scss';
-
 export type resultValidProps = {
   inputs: { [name: string]: string };
   valid: boolean;

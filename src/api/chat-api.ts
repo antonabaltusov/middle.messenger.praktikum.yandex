@@ -1,5 +1,5 @@
 import HTTPTransport from 'utils/HttpTransport';
-import { baseUrl, baseHeaders } from './base-api';
+import { BASEURL, BASEHEADERS } from './base-api';
 
 type queryParam = {
   offset?: number;
@@ -16,18 +16,18 @@ type getUsersByChatsParam = {
 export const chatAPI = {
   getChats: (data: queryParam = { offset: 0, limit: 10, title: '' }) =>
     HTTPTransport.get({
-      url: baseUrl + 'chats',
+      url: BASEURL + 'chats',
       options: {
         data,
-        headers: { ...baseHeaders },
+        headers: { ...BASEHEADERS },
       },
     }).then((data) => JSON.parse(data.response)),
   getUsersByChats: (id: number, data?: getUsersByChatsParam) =>
     HTTPTransport.get({
-      url: baseUrl + `chats/${id}/users`,
+      url: BASEURL + `chats/${id}/users`,
       options: {
         data,
-        headers: { ...baseHeaders },
+        headers: { ...BASEHEADERS },
       },
     }).then((data) => {
       if (data.status === 200) {
@@ -38,10 +38,10 @@ export const chatAPI = {
 
   newChat: (data: { title: string }) =>
     HTTPTransport.post({
-      url: baseUrl + 'chats',
+      url: BASEURL + 'chats',
       options: {
         data,
-        headers: { ...baseHeaders },
+        headers: { ...BASEHEADERS },
       },
     }).then((data) => {
       if (data.status === 200) {
@@ -51,10 +51,10 @@ export const chatAPI = {
     }),
   addUsertoChat: (data: { users: number[]; chatId: number }) =>
     HTTPTransport.put({
-      url: baseUrl + 'chats/users',
+      url: BASEURL + 'chats/users',
       options: {
         data,
-        headers: { ...baseHeaders },
+        headers: { ...BASEHEADERS },
       },
     }).then((data) => {
       if (data.status === 200) {
@@ -64,18 +64,18 @@ export const chatAPI = {
     }),
   daleteChat: (data: { chatId: number }) =>
     HTTPTransport.delete({
-      url: baseUrl + 'chats',
+      url: BASEURL + 'chats',
       options: {
         data,
-        headers: { ...baseHeaders },
+        headers: { ...BASEHEADERS },
       },
     }),
   deleteUserFromChat: (data: { users: number[]; chatId: number }) =>
     HTTPTransport.delete({
-      url: baseUrl + 'chats/users',
+      url: BASEURL + 'chats/users',
       options: {
         data,
-        headers: { ...baseHeaders },
+        headers: { ...BASEHEADERS },
       },
     }).then((data) => {
       if (data.status === 400) {
@@ -85,9 +85,9 @@ export const chatAPI = {
     }),
   getToken: (id: number) =>
     HTTPTransport.post({
-      url: baseUrl + `chats/token/${id}`,
+      url: BASEURL + `chats/token/${id}`,
       options: {
-        headers: { ...baseHeaders },
+        headers: { ...BASEHEADERS },
       },
     }).then((data) => {
       if (data.status === 200) {

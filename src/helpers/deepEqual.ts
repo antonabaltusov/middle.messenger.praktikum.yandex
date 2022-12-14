@@ -13,7 +13,7 @@ export default function deepEqual(
   let propertiesInA = 0,
     propertiesInB = 0;
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  for (const property in a) {
+  for (const _ in a) {
     propertiesInA += 1;
   }
   for (const property in b) {

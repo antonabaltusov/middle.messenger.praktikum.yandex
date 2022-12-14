@@ -1,4 +1,4 @@
-enum METHODS {
+export enum METHODS {
   GET = 'GET',
   POST = 'POST',
   PUT = 'PUT',
@@ -16,7 +16,7 @@ type RequestProps = {
   options?: Options;
 };
 
-function queryStringify(data: any) {
+export function queryStringify(data: any) {
   if (typeof data !== 'object') {
     throw new Error('Data must be object');
   }
@@ -108,21 +108,4 @@ export default class HTTPTransport {
       }
     });
   }
-}
-export function fetchWithRetry(url: string, options: Options) {
-  const { tries = 1 } = options;
-
-  function onError(err: any) {
-    const triesLeft = tries - 1;
-    if (!triesLeft) {
-      throw err;
-    }
-
-    return HTTPTransport.get({
-      url,
-      options: { ...options, tries: triesLeft },
-    });
-  }
-
-  return HTTPTransport.get({ url, options }).catch(onError);
 }

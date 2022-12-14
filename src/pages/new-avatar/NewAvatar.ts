@@ -1,12 +1,12 @@
 import { userAPI } from 'api/user-api';
 import { apiHasError } from 'utils/apiHasError';
 import { Block } from 'utils/Block';
-import './style.scss';
-import { Router } from 'utils/Router';
+import { Router } from 'utils/Router/index';
 import { Screens } from 'utils/screenList';
 import { authAPI } from 'api/login-api';
 import { addUserData } from 'utils/Store/Action';
 import { transformUser } from 'utils/apiTransformers';
+import './style.scss';
 const router = new Router('#app');
 export class NewAvatar extends Block<{}> {
   constructor(props: Record<string, any>) {
@@ -34,7 +34,6 @@ export class NewAvatar extends Block<{}> {
               router.go(Screens.Profile);
             } catch (err) {
               console.error(err);
-            } finally {
             }
           }
         },

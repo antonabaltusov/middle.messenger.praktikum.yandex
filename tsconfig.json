@@ -1,13 +1,10 @@
 {
   "compilerOptions": {
-    "target": "es2017",
-    "module": "commonjs",
-    "rootDir": "./src",
-    "baseUrl": "./src",
+    "declaration": true,
+    "target": "es5",
+    "module": "CommonJS",
     "typeRoots": ["node_modules/@types", "typings/app.d.ts"],
-    "declaration": false,
     "sourceMap": true,
-    "outDir": "./dist",
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "strict": true,
@@ -15,6 +12,23 @@
     "strictNullChecks": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "skipLibCheck": true
-  }
+    "skipLibCheck": true,
+    "allowJs": true,
+    "baseUrl": ".",
+    "paths": {
+      "utils/*": ["./src/utils/*"],
+      "pages/*": ["./src/pages/*"],
+      "components/*": ["./src/components/*"],
+      "services/*": ["./src/services/*"],
+      "helpers/*": ["./src/helpers/*"],
+      "api/*": ["./src/api/*"],
+      "blocks/*": ["./src/blocks/*"],
+      "assets/*": ["./src/assets/*"],
+      "styles/*": ["./src/styles/*"],
+      "typings/*": ["./src/typings/*"],
+      "uuid/*": ["./node_modules/uuid/dist/v1.js"]
+    }
+  },
+  "exclude": ["node_modules"],
+  "files": ["src/index.ts"]
 }

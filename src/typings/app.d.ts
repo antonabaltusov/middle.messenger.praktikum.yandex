@@ -3,6 +3,7 @@ export enum MessageType {
   ping = 'ping',
   pong = 'pong',
 }
+export type Nullable<T> = T | null;
 declare global {
   export type Nullable<T> = T | null;
 
@@ -74,7 +75,6 @@ declare global {
     isMy?: boolean;
   };
   export type AppState = {
-    appIsInited: boolean;
     isLoading: boolean;
     user: User | null;
     chats: Chats;

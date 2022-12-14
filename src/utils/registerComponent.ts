@@ -1,5 +1,5 @@
 import { Block } from './Block';
-import Handlebars, { HelperOptions } from 'handlebars';
+import Handlebars from 'handlebars';
 
 type BlockConstructable<block extends Block<any>, Props = any> = {
   new (props: Props): block;
@@ -12,10 +12,7 @@ export default function registerComponent<
 >(Component: BlockConstructable<block, Props>) {
   Handlebars.registerHelper(
     Component.componentName || Component.name,
-    function (
-      this: Props,
-      { hash: { ref, ...hash }, data, fn }: HelperOptions
-    ) {
+    function (this: Props, { hash: { ref, ...hash }, data, fn }: any) {
       if (!data.root.children) {
         data.root.children = {};
       }

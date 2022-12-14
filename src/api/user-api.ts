@@ -1,5 +1,5 @@
 import HTTPTransport from 'utils/HttpTransport';
-import { baseUrl, baseHeaders } from './base-api';
+import { BASEURL, BASEHEADERS } from './base-api';
 export type APIError = {
   reason: string;
 };
@@ -17,20 +17,18 @@ type UserChangePasswor = {
   newPassword: string;
 };
 
-//type LoginResponseData = UserDTO | APIError;
-
 export const userAPI = {
   editUser: (data: UserChangeData) =>
     HTTPTransport.put({
-      url: baseUrl + 'user/profile',
+      url: BASEURL + 'user/profile',
       options: {
         data,
-        headers: { ...baseHeaders },
+        headers: { ...BASEHEADERS },
       },
     }).then((data) => JSON.parse(data.response)),
   newAvatar: (data: FormData) =>
     HTTPTransport.put({
-      url: baseUrl + 'user/profile/avatar',
+      url: BASEURL + 'user/profile/avatar',
       options: {
         data,
         headers: {
@@ -40,10 +38,10 @@ export const userAPI = {
     }).then((data) => JSON.parse(data.response)),
   newPassword: (data: UserChangePasswor) =>
     HTTPTransport.put({
-      url: baseUrl + 'user/password',
+      url: BASEURL + 'user/password',
       options: {
         data,
-        headers: { ...baseHeaders },
+        headers: { ...BASEHEADERS },
       },
     }).then((data) => {
       if (data.status === 400) {
@@ -54,10 +52,10 @@ export const userAPI = {
     }),
   getUserByLogin: (data: { login: string }) =>
     HTTPTransport.post({
-      url: baseUrl + 'user/search',
+      url: BASEURL + 'user/search',
       options: {
         data,
-        headers: { ...baseHeaders },
+        headers: { ...BASEHEADERS },
       },
     }).then((data) => JSON.parse(data.response)),
 };
