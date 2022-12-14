@@ -51,7 +51,7 @@ export const chatService = {
     }
   },
   async addUsertoChat(chatId: number) {
-    const loginUser = prompt('login of user', 'antonabaltusovAAA');
+    const loginUser = prompt('login of user');
     if (loginUser) {
       try {
         const usersByLogin = await userService.getUsersByLogin(loginUser);

@@ -20,8 +20,11 @@ export class FormSingIn extends Form {
           password: inputs.password,
         };
         const response = await authAPI.login(data);
+        console.log(response);
 
         if (apiHasError(response)) {
+          console.log(11);
+
           this.refs.ErrorForm?.setProps({ text: response.reason });
           return;
         }

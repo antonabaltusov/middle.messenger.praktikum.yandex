@@ -13,20 +13,8 @@ export default class Store extends EventBus {
 
     super();
 
-    const savedState = null; //localStorage.getItem(Store.STORE_NAME);
-
-    this._state = savedState
-      ? {
-          ...JSON.parse(savedState),
-          socket: null,
-          activeChat: defaultStore?.activeChat,
-        } ?? {}
-      : defaultStore ?? {};
+    this._state = defaultStore ?? {};
     Store._instance = this;
-
-    // this.on(Store.EVENT_UPDATE, () => {
-    //   localStorage.setItem(Store.STORE_NAME, JSON.stringify(this._state));
-    // });
   }
 
   getState() {
