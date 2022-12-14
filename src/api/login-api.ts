@@ -47,6 +47,8 @@ export const authAPI = {
         data,
         headers: { ...BASEHEADERS },
       },
+    }).then((data) => {
+      return JSON.parse(data.response);
     }),
 
   me: () =>
