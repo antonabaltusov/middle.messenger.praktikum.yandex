@@ -29,8 +29,7 @@ export default class Router {
   }
 
   start() {
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    window.onpopstate = (e) => {
+    window.onpopstate = () => {
       this._onRoute(window.location.pathname);
     };
     this._onRoute(window.location.pathname);

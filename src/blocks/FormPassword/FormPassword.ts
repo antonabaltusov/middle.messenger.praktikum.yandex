@@ -1,11 +1,11 @@
 import { userAPI } from 'api/user-api';
-import './style.scss';
-import Form from 'components/Form';
+import Form from 'components/Form/index';
 import { resultValidProps } from 'components/Form/Form';
 import { ValidateType } from 'helpers/validateForm';
 import { apiHasError } from 'utils/apiHasError';
 import { Screens } from 'utils/screenList';
-import { Router } from 'utils/Router';
+import { Router } from 'utils/Router/index';
+import './style.scss';
 const router = new Router('#app');
 
 export class FormPassword extends Form {

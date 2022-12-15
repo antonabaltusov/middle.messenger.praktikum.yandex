@@ -18,6 +18,7 @@ export class MassegeItem extends Block<Prop> {
   render() {
     return `
     <div class="massenger-main__item {{#if massege.isMy }}right{{/if}}">
+    {{{ Avatar img=massege.avatar }}}
       <p>{{massege.content}}</p>
       <span>{{massege.time}}</span>
     </div>

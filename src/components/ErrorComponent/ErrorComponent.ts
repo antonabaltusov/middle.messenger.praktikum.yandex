@@ -1,6 +1,5 @@
 import { Block } from 'utils/Block';
 import './style.scss';
-
 type IncomingProps = {
   codeError: string;
   message: string;

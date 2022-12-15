@@ -1,10 +1,10 @@
-import ChangePassword from 'pages/change-password';
-import EditProfile from 'pages/edit-profile';
-import Massenger from 'pages/massenger';
-import NewAvatar from 'pages/new-avatar';
-import Profile from 'pages/profile';
-import Registration from 'pages/registration';
-import SingIn from 'pages/sing-in';
+import ChangePassword from 'pages/change-password/index';
+import EditProfile from 'pages/edit-profile/index';
+import Massenger from 'pages/massenger/index';
+import NewAvatar from 'pages/new-avatar/index';
+import Profile from 'pages/profile/index';
+import Registration from 'pages/registration/index';
+import SingIn from 'pages/sing-in/index';
 import { Block } from './Block';
 
 export enum Screens {

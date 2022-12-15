@@ -1,7 +1,7 @@
-import { Router } from 'utils/Router';
+import { Router } from 'utils/Router/index';
 import { getScreenComponent, Screens } from 'utils/screenList';
 
-const routes = [
+export const routes = [
   {
     path: Screens.SingIn,
     props: {

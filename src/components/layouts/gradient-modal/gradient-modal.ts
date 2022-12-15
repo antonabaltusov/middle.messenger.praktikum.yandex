@@ -1,6 +1,6 @@
 import { Block } from 'utils/Block';
-
 import './style.scss';
+
 import 'styles/style.css';
 export class GradientModal extends Block<{}> {
   static componentName = 'GradientModal';

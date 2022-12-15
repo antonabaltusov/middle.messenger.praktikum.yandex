@@ -1,10 +1,10 @@
 import { chatAPI } from 'api/chat-api';
 import { apiHasError } from 'utils/apiHasError';
 import { transformUsersChats } from 'utils/apiTransformers';
-import { Actions } from 'utils/Store';
+import { Actions } from 'utils/Store/index';
 import { userService } from './userService';
-import store from 'utils/Store';
-import { MessageType } from '../typings/app.d';
+import store from 'utils/Store/index';
+import { MessageType } from 'typings/app.d';
 import { BASEURLWEBSOCKET } from 'api/base-api';
 
 export const chatService = {
@@ -29,7 +29,15 @@ export const chatService = {
         return;
       }
 
-      return transformUsersChats(response);
+      const users = transformUsersChats(response);
+
+      const state = store.getState();
+      const newUsers = {} as Record<number, UserInChat>;
+      users.forEach((user) => {
+        newUsers[user.id] = user;
+      });
+      store.set('users', { ...state.users, ...newUsers });
+      return users;
     } catch (err) {
       console.error(err);
     }
@@ -51,7 +59,7 @@ export const chatService = {
     }
   },
   async addUsertoChat(chatId: number) {
-    const loginUser = prompt('login of user', 'antonabaltusovAAA');
+    const loginUser = prompt('login of user');
     if (loginUser) {
       try {
         const usersByLogin = await userService.getUsersByLogin(loginUser);
@@ -151,9 +159,7 @@ export const chatService = {
       Actions.addMasseges(chatId, Array.isArray(message) ? message : [message]);
     });
 
-    socket.addEventListener('error', (event) => {
-      console.log('Ошибка', event.message);
-    });
+    socket.addEventListener('error', () => {});
     store.set('socket', socket);
   },
 };

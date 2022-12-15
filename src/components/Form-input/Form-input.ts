@@ -1,8 +1,7 @@
 import { Block } from 'utils/Block';
 import { validateInput, ValidateType } from 'helpers/validateForm';
+import Input from 'components/input/index';
 import './style.scss';
-import Input from 'components/input';
-
 type IncomingProps = {
   disabled?: boolean;
   value?: string;
@@ -43,6 +42,7 @@ export class FormInput extends Block<Props> {
     const value = inputEl.value.trim();
     inputEl.value = value;
     const errors = validateInput({ type: inputEl.name as ValidateType, value });
+
     this.refs.Error?.setProps({ text: errors });
     if (errors.length) {
       this.element?.classList.add('error');

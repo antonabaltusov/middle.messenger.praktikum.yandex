@@ -1,4 +1,4 @@
-import { defaultState } from '../../store';
+import { defaultState } from '../../store/index';
 import Store from './Store';
 
 export default new Store(defaultState);

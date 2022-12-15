@@ -5,6 +5,11 @@
   align-items: center;
   padding: 5px;
   width: 100%;
+  &-name {
+    background-color: blueviolet;
+    font-weight: 700;
+    color: white;
+  }
   &:hover {
     cursor: pointer;
     background-color: rgba($color: black, $alpha: 0.1);

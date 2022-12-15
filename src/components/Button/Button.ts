@@ -1,7 +1,6 @@
 import { Block } from 'utils/Block';
+import { Router } from 'utils/Router/index';
 import './style.scss';
-import { Router } from 'utils/Router';
-
 const router = new Router('#app');
 
 export type IncomingProps = {

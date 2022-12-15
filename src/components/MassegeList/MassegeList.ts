@@ -1,6 +1,5 @@
 import { Block } from 'utils/Block';
 import './style.scss';
-
 export type Masseges = {
   date: string;
   masseges: Message[];
@@ -9,11 +8,13 @@ type Prop = {
   userId: number;
   activeChat: number;
   socket: WebSocket | undefined;
+  masseges: MessageDTO[];
+  users: Record<number, UserInChat>;
 };
 
 export class MassegeList extends Block<Prop> {
   static componentName = 'MassegeList';
-  ping: number | undefined;
+  ping: ReturnType<typeof setInterval> | undefined;
   constructor(prop: Prop) {
     super(prop);
   }
@@ -43,6 +44,7 @@ export class MassegeList extends Block<Prop> {
   render() {
     this.initPing();
     this.goDown();
+    console.log(this);
     return `
     <div class="massenger-main__list-wrapper">
       <div class="massenger-main__list">

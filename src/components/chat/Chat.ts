@@ -1,7 +1,6 @@
 import { chatService } from 'services/chatService';
 import { Block } from 'utils/Block';
 import './style.scss';
-
 type ChatProps = {
   userId: number;
   chat: Chat;
@@ -71,6 +70,7 @@ export class ChatItem extends Block<ChatProps> {
       }
       return user.id !== this.props.userId;
     });
+    console.log(newProp.users);
 
     if (newProp.users) {
       this.setProps({
@@ -85,9 +85,9 @@ export class ChatItem extends Block<ChatProps> {
     return `
     <div class="chat {{#if active}}active{{/if}}">
       <div>
-        {{{ Avatar img=chat.img }}}
         <p class="chat-name">{{chat.title}}</p>
         {{#each users}}
+        {{{ Avatar img=this.avatar }}}
           <div>{{ this.firstName }}
             {{#if ../admin}}<button id="{{this.id}}" class="delete-user">-</button>{{/if}}
           </div>

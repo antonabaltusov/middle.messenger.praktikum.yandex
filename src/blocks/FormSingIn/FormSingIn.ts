@@ -1,11 +1,10 @@
 import { authAPI } from 'api/login-api';
-import Form from 'components/Form';
+import Form from 'components/Form/index';
 import { resultValidProps } from 'components/Form/Form';
 import { ValidateType } from 'helpers/validateForm';
 import { apiHasError } from 'utils/apiHasError';
-
 import './style.scss';
-import { Router } from 'utils/Router';
+import { Router } from 'utils/Router/index';
 import { Screens } from 'utils/screenList';
 import { addUserData } from 'utils/Store/Action';
 import { transformUser } from 'utils/apiTransformers';
@@ -21,8 +20,11 @@ export class FormSingIn extends Form {
           password: inputs.password,
         };
         const response = await authAPI.login(data);
+        console.log(response);
 
         if (apiHasError(response)) {
+          console.log(11);
+
           this.refs.ErrorForm?.setProps({ text: response.reason });
           return;
         }

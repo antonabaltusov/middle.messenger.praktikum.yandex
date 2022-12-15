@@ -1,7 +1,7 @@
 import { authAPI, UserDTO } from 'api/login-api';
 import { userAPI } from 'api/user-api';
 import { apiHasError } from 'utils/apiHasError';
-import { Router } from 'utils/Router';
+import { Router } from 'utils/Router/index';
 import { Screens } from 'utils/screenList';
 
 const router = new Router('#app');

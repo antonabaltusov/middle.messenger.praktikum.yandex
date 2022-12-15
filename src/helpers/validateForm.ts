@@ -18,9 +18,10 @@ type ValidateRule = {
 
 export function validateInput(item: ValidateRule): string[] {
   const errorMessage = [];
+
   switch (item.type) {
     case ValidateType.Message:
-      if (!item.value.match('')) {
+      if (!item.value.length) {
         errorMessage.push('не должно быть пустым');
       }
       break;

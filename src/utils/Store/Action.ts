@@ -1,7 +1,7 @@
 import { transformMessage } from 'utils/apiTransformers';
 import { mergeDeep } from 'utils/mergeDeep';
-import store from '.';
-import { MessageType } from '../../typings/app.d';
+import store from './index';
+import { MessageType } from 'typings/app.d';
 
 const getUserState = () => {
   const state = store.getState();
@@ -44,9 +44,13 @@ const addMasseges = (chatId: number, massseges: MessageDTO[]) => {
   const filterMassseges = massseges
     .filter((item) => item.type == MessageType.message)
     .map((item) => {
+      console.log(item);
+      console.log(state.users);
+
       return {
         ...transformMessage(item),
         isMy: state.user?.id === item.user_id,
+        avatar: state.users[item.user_id].avatar,
       };
     });
 
