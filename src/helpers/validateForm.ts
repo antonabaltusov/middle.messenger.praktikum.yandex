@@ -21,7 +21,7 @@ export function validateInput(item: ValidateRule): string[] {
 
   switch (item.type) {
     case ValidateType.Message:
-      if (item.value.match('')) {
+      if (!item.value.length) {
         errorMessage.push('не должно быть пустым');
       }
       break;

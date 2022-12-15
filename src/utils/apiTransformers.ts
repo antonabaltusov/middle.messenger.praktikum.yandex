@@ -7,7 +7,9 @@ export const transformUser = (data: UserDTO): User => {
     firstName: data.first_name,
     secondName: data.second_name,
     displayName: data.display_name,
-    avatar: 'https://ya-praktikum.tech/api/v2/resources/' + data.avatar,
+    avatar: data.avatar
+      ? 'https://ya-praktikum.tech/api/v2/resources/' + data.avatar
+      : null,
     phone: data.phone,
     email: data.email,
   };

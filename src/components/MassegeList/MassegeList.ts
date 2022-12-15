@@ -8,6 +8,8 @@ type Prop = {
   userId: number;
   activeChat: number;
   socket: WebSocket | undefined;
+  masseges: MessageDTO[];
+  users: Record<number, UserInChat>;
 };
 
 export class MassegeList extends Block<Prop> {
@@ -42,6 +44,7 @@ export class MassegeList extends Block<Prop> {
   render() {
     this.initPing();
     this.goDown();
+    console.log(this);
     return `
     <div class="massenger-main__list-wrapper">
       <div class="massenger-main__list">

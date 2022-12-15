@@ -16,6 +16,12 @@ export async function initApp() {
     }
 
     addUserData(transformUser(response));
+    if (
+      router.currentRoute?.path === Screens.SingIn ||
+      router.currentRoute?.path === Screens.Registration
+    ) {
+      router.go(Screens.Massenger);
+    }
   } catch (err) {
     console.error(err);
     router.go(Screens.SingIn);

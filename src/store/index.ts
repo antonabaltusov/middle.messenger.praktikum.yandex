@@ -7,4 +7,5 @@ export const defaultState: AppState = {
     masseges: null,
   },
   socket: null,
+  users: {},
 };

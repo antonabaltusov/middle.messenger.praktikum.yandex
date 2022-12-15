@@ -7,5 +7,6 @@ export default Connect(MassegeList as typeof Block, (state) => {
     activeChatId: state.activeChat?.id,
     socket: state.socket,
     masseges: state.activeChat?.masseges,
+    users: state.users,
   };
 });

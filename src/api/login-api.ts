@@ -48,6 +48,9 @@ export const authAPI = {
         headers: { ...BASEHEADERS },
       },
     }).then((data) => {
+      if (data.status === 200) {
+        return data;
+      }
       return JSON.parse(data.response);
     }),
 
