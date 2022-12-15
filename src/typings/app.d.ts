@@ -18,7 +18,7 @@ declare global {
     login: string;
     email: string;
     phone: string;
-    avatar: string;
+    avatar: string | null;
   };
   export type UserInChat = {
     id: number;
@@ -28,7 +28,7 @@ declare global {
     login: string;
     email: string;
     phone: string;
-    avatar: string;
+    avatar: string | undefined;
     role: userRoleChat;
   };
 
@@ -73,6 +73,7 @@ declare global {
     type: MessageType;
     userId: number;
     isMy?: boolean;
+    avatar?: string | undefined;
   };
   export type AppState = {
     isLoading: boolean;
@@ -80,6 +81,7 @@ declare global {
     chats: Chats;
     activeChat: { id: number | null; masseges: Message[] | null };
     socket: WebSocket | null;
+    users: Record<number, UserInChat>;
   };
 }
 

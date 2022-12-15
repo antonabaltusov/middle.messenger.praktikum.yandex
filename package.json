@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "My webpack project",
   "scripts": {
-    "dev": "parcel ./src/index.html --no-cache",
+    "dev": "webpack serve",
     "prod": "parcel build ./src/index.html",
     "start": "parcel build ./src/index.html && node ./server.js",
     "test": "ts-mocha --paths --require mocha-dom 'src/**/*.spec.ts'",
@@ -12,9 +12,9 @@
     "build:dev": "webpack --mode=development",
     "build:prod": "webpack --mode=production --node-env=production",
     "watch": "webpack --watch",
-    "serve": "webpack serve",
     "prepare": "husky install"
   },
+  "lint-staged": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/antonabaltusov/middle.messenger.praktikum.yandex.git"
@@ -66,6 +66,7 @@
     "jsdom": "20.0.3",
     "jsdom-context-require": "4.0.6",
     "jsdom-global": "3.0.2",
+    "lint-staged": "13.1.0",
     "mini-css-extract-plugin": "2.7.2",
     "mocha": "10.2.0",
     "mocha-dom": "1.0.0",

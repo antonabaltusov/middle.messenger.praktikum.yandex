@@ -29,7 +29,15 @@ export const chatService = {
         return;
       }
 
-      return transformUsersChats(response);
+      const users = transformUsersChats(response);
+
+      const state = store.getState();
+      const newUsers = {} as Record<number, UserInChat>;
+      users.forEach((user) => {
+        newUsers[user.id] = user;
+      });
+      store.set('users', { ...state.users, ...newUsers });
+      return users;
     } catch (err) {
       console.error(err);
     }

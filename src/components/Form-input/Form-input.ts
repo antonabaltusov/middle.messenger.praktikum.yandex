@@ -42,6 +42,7 @@ export class FormInput extends Block<Props> {
     const value = inputEl.value.trim();
     inputEl.value = value;
     const errors = validateInput({ type: inputEl.name as ValidateType, value });
+
     this.refs.Error?.setProps({ text: errors });
     if (errors.length) {
       this.element?.classList.add('error');
